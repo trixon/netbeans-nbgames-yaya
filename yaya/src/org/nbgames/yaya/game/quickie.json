@@ -1,0 +1,52 @@
+{
+    "id": "org.nbgames.yaya.quickie",
+    "title": "Quickie",
+    "title-sv": "Snabben",
+    "numOfDice": 6,
+    "numOfRolls": 4,
+    "resultRow": 3,
+    "defaultVariant": 0,
+    "variants": "standard downwards upwards random",
+    "versionName": "2",
+    "versionDate": "2014-01-03",
+    "author": "Patrik Karlsson",
+    "rows": [
+        {
+            "id": "rolls",
+            "title": "Throws",
+            "title-sv": "Slag",
+            "titleSym": "✋",
+            "isSum": true,
+            "isRollCounter": true
+        },
+        {
+            "id": "onePair",
+            "title": "One pair",
+            "title-sv": "Par",
+            "titleSym": "◼ ◼",
+            "isPlayable": true,
+            "lim": 6,
+            "max": 12,
+            "formula": "duplicates 2"
+        },
+        {
+            "id": "chance",
+            "title": "Chance",
+            "title-sv": "Chans",
+            "titleSym": "� � � � � �",
+            "isPlayable": true,
+            "lim": 8,
+            "max": 24,
+            "formula": "sum"
+        },
+        {
+            "id": "total",
+            "title": "Total",
+            "title-sv": "Summa",
+            "titleSym": "∑",
+            "isSum": true,
+            "max": 36,
+            "sum": "1-2"
+        }
+    ]
+}

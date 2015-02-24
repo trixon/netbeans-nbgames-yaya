@@ -1,0 +1,210 @@
+{
+    "id": "default",
+    "title": "Yahtzee",
+    "title-sv": "Yatzy",
+    "numOfDice": 5,
+    "numOfRolls": 3,
+    "resultRow": 19,
+    "defaultVariant": 0,
+    "variants": "standard downwards upwards upper_lower lower_upper random",
+    "versionName": "1",
+    "versionDate": "2014-01-03",
+    "author": "Patrik Karlsson",
+    "rows": [
+        {
+            "id": "rolls",
+            "title": "Throws",
+            "title-sv": "Slag",
+            "isSum": true,
+            "isRollCounter": true
+        },
+        {
+            "id": "ones",
+            "title": "Ones",
+            "title-sv": "Ettor",
+            "titleSym": "⚀",
+            "isPlayable": true,
+            "lim": 3,
+            "max": 5,
+            "formula": "sum 1"
+        },
+        {
+            "id": "twos",
+            "title": "Twos",
+            "title-sv": "Tvåor",
+            "titleSym": "⚁",
+            "isPlayable": true,
+            "lim": 6,
+            "max": 10,
+            "formula": "sum 2"
+        },
+        {
+            "id": "threes",
+            "title": "Threes",
+            "title-sv": "Treor",
+            "titleSym": "⚂",
+            "isPlayable": true,
+            "lim": 9,
+            "max": 15,
+            "formula": "sum 3"
+        },
+        {
+            "id": "fours",
+            "title": "Fours",
+            "title-sv": "Fyror",
+            "titleSym": "⚃",
+            "isPlayable": true,
+            "lim": 12,
+            "max": 20,
+            "formula": "sum 4"
+        },
+        {
+            "id": "fives",
+            "title": "Fives",
+            "title-sv": "Femmor",
+            "titleSym": "⚄",
+            "isPlayable": true,
+            "lim": 15,
+            "max": 25,
+            "formula": "sum 5"
+        },
+        {
+            "id": "sixes",
+            "title": "Sixes",
+            "title-sv": "Sexor",
+            "titleSym": "⚅",
+            "isPlayable": true,
+            "lim": 18,
+            "max": 30,
+            "formula": "sum 6"
+        },
+        {
+            "id": "sum1",
+            "title": "Sum 1",
+            "title-sv": "Delsumma 1",
+            "titleSym": "∑₁",
+            "isSum": true,
+            "max": 105,
+            "sum": "1-6"
+        },
+        {
+            "id": "bonus",
+            "title": "Bonus",
+            "title-sv": "Bonus",
+            "titleSym": "+",
+            "isSum": true,
+            "isBonus": true,
+            "lim": 63,
+            "max": 50,
+            "sum": "1-6"
+        },
+        {
+            "id": "onePair",
+            "title": "One pair",
+            "title-sv": "Par",
+            "titleSym": "◼ ◼",
+            "isPlayable": true,
+            "lim": 6,
+            "max": 12,
+            "formula": "duplicates 2"
+        },
+        {
+            "id": "twoPair",
+            "title": "Two pair",
+            "title-sv": "Tvåpar",
+            "titleSym": "◼ ◼ ◻ ◻",
+            "isPlayable": true,
+            "lim": 12,
+            "max": 22,
+            "formula": "pair 2"
+        },
+        {
+            "id": "threeOfAKind",
+            "title": "Three of a kind",
+            "title-sv": "Tretal",
+            "titleSym": "◼ ◼ ◼",
+            "isPlayable": true,
+            "lim": 12,
+            "max": 18,
+            "formula": "duplicates 3"
+        },
+        {
+            "id": "fourOfAKind",
+            "title": "Four of a kind",
+            "title-sv": "Fyrtal",
+            "titleSym": "◼ ◼ ◼ ◼",
+            "isPlayable": true,
+            "lim": 16,
+            "max": 24,
+            "formula": "duplicates 4"
+        },
+        {
+            "id": "smallStraight",
+            "title": "Small Straight",
+            "title-sv": "Liten stege",
+            "titleSym": "⚀ ⚁ ⚂ ⚃ ⚄",
+            "isPlayable": true,
+            "lim": 15,
+            "max": 15,
+            "formula": "straight 5"
+        },
+        {
+            "id": "largeStraight",
+            "title": "Large Straight",
+            "title-sv": "Stor stege",
+            "titleSym": "⚁ ⚂ ⚃ ⚄ ⚅",
+            "isPlayable": true,
+            "lim": 20,
+            "max": 20,
+            "formula": "straight 5"
+        },
+        {
+            "id": "fullHouse",
+            "title": "Full House",
+            "title-sv": "Kåk",
+            "titleSym": "◼ ◼ ◼ ◻ ◻",
+            "isPlayable": true,
+            "lim": 16,
+            "max": 28,
+            "formula": "house 3 2"
+        },
+        {
+            "id": "chance",
+            "title": "Chance",
+            "title-sv": "Chans",
+            "titleSym": "� � � � �",
+            "isPlayable": true,
+            "lim": 20,
+            "max": 30,
+            "formula": "sum"
+        },
+        {
+            "id": "yahtzee",
+            "title": "Yahtzee",
+            "title-sv": "Yatzy",
+            "titleSym": "◼ ◼ ◼ ◼ ◼",
+            "isPlayable": true,
+            "lim": 50,
+            "max": 50,
+            "formula": "duplicates 5"
+        },
+        {
+            "id": "sum2",
+            "title": "Sum 2",
+            "title-sv": "Delsumma 2",
+            "titleSym": "∑₂",
+            "isSum": true,
+            "max": 219,
+            "sum": "8-16"
+        },
+        {
+            "id": "total",
+            "title": "Total",
+            "title-sv": "Summa",
+            "titleSym": "∑",
+            "isSum": true,
+            "max": 374,
+            "sum": "1-6,8-17"
+        }
+    ]
+}
