@@ -15,6 +15,7 @@
  */
 package org.nbgames.yaya;
 
+import org.nbgames.core.GameCategory;
 import org.nbgames.core.api.DiceGameProvider;
 import org.nbgames.core.api.GameProvider;
 import org.nbgames.core.base.GameController;
@@ -52,6 +53,11 @@ public class YayaController extends GameController implements DiceGameProvider, 
         mGamePanel = new YayaPanel(this);
         setGamePanel(mGamePanel);
         gameTopComponent.setGamePanel(mGamePanel);
+    }
+
+    @Override
+    public GameCategory getCategory() {
+        return GameCategory.DICE;
     }
 
     @Override
