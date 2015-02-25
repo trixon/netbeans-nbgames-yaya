@@ -18,7 +18,7 @@ package org.nbgames.yaya;
 import org.nbgames.core.GameCategory;
 import org.nbgames.core.api.DiceGameProvider;
 import org.nbgames.core.api.GameProvider;
-import org.nbgames.core.base.GameController;
+import org.nbgames.core.GameController;
 import org.nbgames.core.game.NewGameDialogManager;
 import org.nbgames.core.game.NewGameController;
 import org.openide.DialogDisplayer;
