@@ -71,6 +71,7 @@ public class YayaNewGamePanel extends NewGamePanel {
         variantComboBox = new javax.swing.JComboBox();
         numOfPlayersLabel = new javax.swing.JLabel();
         numOfPlayersComboBox = new javax.swing.JComboBox();
+        selectPlayersPanel1 = new org.nbgames.core.game.SelectPlayersPanel();
 
         typeLabel.setLabelFor(typeComboBox);
         org.openide.awt.Mnemonics.setLocalizedText(typeLabel, org.openide.util.NbBundle.getMessage(YayaNewGamePanel.class, "YayaNewGamePanel.typeLabel.text")); // NOI18N
@@ -109,7 +110,10 @@ public class YayaNewGamePanel extends NewGamePanel {
                                 .addContainerGap()
                                 .addComponent(byLineLabel))
                             .addComponent(numOfPlayersLabel))
-                        .addGap(0, 130, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(selectPlayersPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -128,7 +132,9 @@ public class YayaNewGamePanel extends NewGamePanel {
                 .addComponent(numOfPlayersLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(numOfPlayersComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(selectPlayersPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -146,6 +152,7 @@ public class YayaNewGamePanel extends NewGamePanel {
     private javax.swing.JLabel byLineLabel;
     private javax.swing.JComboBox numOfPlayersComboBox;
     private javax.swing.JLabel numOfPlayersLabel;
+    private org.nbgames.core.game.SelectPlayersPanel selectPlayersPanel1;
     private javax.swing.JComboBox typeComboBox;
     private javax.swing.JLabel typeLabel;
     private javax.swing.JComboBox variantComboBox;

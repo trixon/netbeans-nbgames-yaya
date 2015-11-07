@@ -15,12 +15,15 @@
  */
 package org.nbgames.yaya;
 
+import javax.swing.JButton;
 import org.nbgames.core.GameCategory;
 import org.nbgames.core.api.DiceGameProvider;
 import org.nbgames.core.api.GameProvider;
 import org.nbgames.core.GameController;
+import org.nbgames.core.dictionary.DictNbg;
 import org.nbgames.core.game.NewGameDialogManager;
 import org.nbgames.core.game.NewGameController;
+import org.openide.DialogDescriptor;
 import org.openide.DialogDisplayer;
 import org.openide.awt.StatusDisplayer;
 import org.openide.util.NbBundle;
@@ -79,12 +82,13 @@ public class YayaController extends GameController implements DiceGameProvider, 
 
     @Override
     public void requestNewGame() {
-        WindowManager.getDefault().invokeWhenUIReady(new Runnable() {
-            @Override
-            public void run() {
-                NewGameDialogManager manager = new NewGameDialogManager(new YayaNewGamePanel(), YayaController.this);
-                DialogDisplayer.getDefault().notify(manager.getDialogDescriptor());
-            }
+        WindowManager.getDefault().invokeWhenUIReady(() -> {
+            NewGameDialogManager manager = new NewGameDialogManager(new YayaNewGamePanel(), YayaController.this);
+
+            DialogDescriptor d = manager.getDialogDescriptor();
+            d.setAdditionalOptions(new JButton[]{new JButton(DictNbg.SHUFFLE.getString())});
+
+            DialogDisplayer.getDefault().notify(d);
         });
     }
 
