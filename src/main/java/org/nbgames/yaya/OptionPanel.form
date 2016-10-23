@@ -58,7 +58,7 @@
         <Property name="rows" type="int" value="2"/>
       </Layout>
       <SubComponents>
-        <Component class="se.trixon.almond.swing.ColorChooserButton" name="backgroundColorChooserButton">
+        <Component class="se.trixon.almond.nbp.swing.ColorChooserButton" name="backgroundColorChooserButton">
           <Properties>
             <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
               <ResourceString bundle="org/nbgames/yaya/Bundle.properties" key="OptionPanel.backgroundColorChooserButton.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
@@ -68,7 +68,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="colorChooserButtonActionPerformed"/>
           </Events>
         </Component>
-        <Component class="se.trixon.almond.swing.ColorChooserButton" name="scorecardColorChooserButton">
+        <Component class="se.trixon.almond.nbp.swing.ColorChooserButton" name="scorecardColorChooserButton">
           <Properties>
             <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
               <ResourceString bundle="org/nbgames/yaya/Bundle.properties" key="OptionPanel.scorecardColorChooserButton.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
@@ -78,7 +78,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="colorChooserButtonActionPerformed"/>
           </Events>
         </Component>
-        <Component class="se.trixon.almond.swing.ColorChooserButton" name="headerColorChooserButton">
+        <Component class="se.trixon.almond.nbp.swing.ColorChooserButton" name="headerColorChooserButton">
           <Properties>
             <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
               <ResourceString bundle="org/nbgames/yaya/Bundle.properties" key="OptionPanel.headerColorChooserButton.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
@@ -88,7 +88,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="colorChooserButtonActionPerformed"/>
           </Events>
         </Component>
-        <Component class="se.trixon.almond.swing.ColorChooserButton" name="sumColorChooserButton">
+        <Component class="se.trixon.almond.nbp.swing.ColorChooserButton" name="sumColorChooserButton">
           <Properties>
             <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
               <ResourceString bundle="org/nbgames/yaya/Bundle.properties" key="OptionPanel.sumColorChooserButton.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
@@ -98,7 +98,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="colorChooserButtonActionPerformed"/>
           </Events>
         </Component>
-        <Component class="se.trixon.almond.swing.ColorChooserButton" name="rowColorChooserButton">
+        <Component class="se.trixon.almond.nbp.swing.ColorChooserButton" name="rowColorChooserButton">
           <Properties>
             <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
               <ResourceString bundle="org/nbgames/yaya/Bundle.properties" key="OptionPanel.rowColorChooserButton.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
@@ -108,7 +108,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="colorChooserButtonActionPerformed"/>
           </Events>
         </Component>
-        <Component class="se.trixon.almond.swing.ColorChooserButton" name="indicatorHighColorChooserButton">
+        <Component class="se.trixon.almond.nbp.swing.ColorChooserButton" name="indicatorHighColorChooserButton">
           <Properties>
             <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
               <ResourceString bundle="org/nbgames/yaya/Bundle.properties" key="OptionPanel.indicatorHighColorChooserButton.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
@@ -118,7 +118,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="colorChooserButtonActionPerformed"/>
           </Events>
         </Component>
-        <Component class="se.trixon.almond.swing.ColorChooserButton" name="indicatorLowColorChooserButton">
+        <Component class="se.trixon.almond.nbp.swing.ColorChooserButton" name="indicatorLowColorChooserButton">
           <Properties>
             <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
               <ResourceString bundle="org/nbgames/yaya/Bundle.properties" key="OptionPanel.indicatorLowColorChooserButton.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>

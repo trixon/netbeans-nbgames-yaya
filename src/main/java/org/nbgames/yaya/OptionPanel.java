@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright 2015 Patrik Karlsson.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,9 +16,9 @@
 package org.nbgames.yaya;
 
 import java.awt.Color;
-import se.trixon.almond.GraphicsHelper;
-import se.trixon.almond.dialogs.ColorChooserDialog;
-import se.trixon.almond.swing.ColorChooserButton;
+import se.trixon.almond.nbp.dialogs.ColorChooserDialog;
+import se.trixon.almond.nbp.swing.ColorChooserButton;
+import se.trixon.almond.util.GraphicsHelper;
 
 /**
  *
@@ -43,13 +43,13 @@ final class OptionPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         colorPanel = new javax.swing.JPanel();
-        backgroundColorChooserButton = new se.trixon.almond.swing.ColorChooserButton();
-        scorecardColorChooserButton = new se.trixon.almond.swing.ColorChooserButton();
-        headerColorChooserButton = new se.trixon.almond.swing.ColorChooserButton();
-        sumColorChooserButton = new se.trixon.almond.swing.ColorChooserButton();
-        rowColorChooserButton = new se.trixon.almond.swing.ColorChooserButton();
-        indicatorHighColorChooserButton = new se.trixon.almond.swing.ColorChooserButton();
-        indicatorLowColorChooserButton = new se.trixon.almond.swing.ColorChooserButton();
+        backgroundColorChooserButton = new se.trixon.almond.nbp.swing.ColorChooserButton();
+        scorecardColorChooserButton = new se.trixon.almond.nbp.swing.ColorChooserButton();
+        headerColorChooserButton = new se.trixon.almond.nbp.swing.ColorChooserButton();
+        sumColorChooserButton = new se.trixon.almond.nbp.swing.ColorChooserButton();
+        rowColorChooserButton = new se.trixon.almond.nbp.swing.ColorChooserButton();
+        indicatorHighColorChooserButton = new se.trixon.almond.nbp.swing.ColorChooserButton();
+        indicatorLowColorChooserButton = new se.trixon.almond.nbp.swing.ColorChooserButton();
         defaultColorsButton = new javax.swing.JButton();
         useSymbolsCheckBox = new javax.swing.JCheckBox();
 
@@ -223,15 +223,15 @@ final class OptionPanel extends javax.swing.JPanel {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private se.trixon.almond.swing.ColorChooserButton backgroundColorChooserButton;
+    private se.trixon.almond.nbp.swing.ColorChooserButton backgroundColorChooserButton;
     private javax.swing.JPanel colorPanel;
     private javax.swing.JButton defaultColorsButton;
-    private se.trixon.almond.swing.ColorChooserButton headerColorChooserButton;
-    private se.trixon.almond.swing.ColorChooserButton indicatorHighColorChooserButton;
-    private se.trixon.almond.swing.ColorChooserButton indicatorLowColorChooserButton;
-    private se.trixon.almond.swing.ColorChooserButton rowColorChooserButton;
-    private se.trixon.almond.swing.ColorChooserButton scorecardColorChooserButton;
-    private se.trixon.almond.swing.ColorChooserButton sumColorChooserButton;
+    private se.trixon.almond.nbp.swing.ColorChooserButton headerColorChooserButton;
+    private se.trixon.almond.nbp.swing.ColorChooserButton indicatorHighColorChooserButton;
+    private se.trixon.almond.nbp.swing.ColorChooserButton indicatorLowColorChooserButton;
+    private se.trixon.almond.nbp.swing.ColorChooserButton rowColorChooserButton;
+    private se.trixon.almond.nbp.swing.ColorChooserButton scorecardColorChooserButton;
+    private se.trixon.almond.nbp.swing.ColorChooserButton sumColorChooserButton;
     private javax.swing.JCheckBox useSymbolsCheckBox;
     // End of variables declaration//GEN-END:variables
 }

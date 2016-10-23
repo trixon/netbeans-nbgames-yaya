@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright 2015 Patrik Karlsson.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -23,7 +23,7 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 import org.nbgames.yaya.Options;
 import org.nbgames.yaya.gamedef.GameRow;
-import se.trixon.almond.GraphicsHelper;
+import se.trixon.almond.util.GraphicsHelper;
 
 /**
  *
