@@ -96,7 +96,7 @@
             <artifactId>org-netbeans-modules-options-api</artifactId>
             <version>${netbeans.version}</version>
         </dependency>
-        
+
         <!--NbGames-->
         <dependency>
             <groupId>org.nbgames</groupId>
@@ -123,5 +123,6 @@
     </dependencies>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <netbeans.hint.license>apache20</netbeans.hint.license>
     </properties>
 </project>
