@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright 2016 Patrik Karlsson.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,13 +16,13 @@
 package org.nbgames.yaya;
 
 import javax.swing.JButton;
+import org.nbgames.core.DictNbg;
 import org.nbgames.core.GameCategory;
+import org.nbgames.core.GameController;
 import org.nbgames.core.api.DiceGameProvider;
 import org.nbgames.core.api.GameProvider;
-import org.nbgames.core.GameController;
-import org.nbgames.core.dictionary.DictNbg;
-import org.nbgames.core.game.NewGameDialogManager;
 import org.nbgames.core.game.NewGameController;
+import org.nbgames.core.game.NewGameDialogManager;
 import org.openide.DialogDescriptor;
 import org.openide.DialogDisplayer;
 import org.openide.awt.StatusDisplayer;
@@ -36,7 +36,8 @@ import org.openide.windows.WindowManager;
  * @author Patrik Karlsson <patrik@trixon.se>
  */
 @ServiceProviders(value = {
-    @ServiceProvider(service = GameProvider.class),
+    @ServiceProvider(service = GameProvider.class)
+    ,
     @ServiceProvider(service = DiceGameProvider.class)}
 )
 public class YayaController extends GameController implements DiceGameProvider, NewGameController {
@@ -86,7 +87,7 @@ public class YayaController extends GameController implements DiceGameProvider, 
             NewGameDialogManager manager = new NewGameDialogManager(new YayaNewGamePanel(), YayaController.this);
 
             DialogDescriptor d = manager.getDialogDescriptor();
-            d.setAdditionalOptions(new JButton[]{new JButton(DictNbg.SHUFFLE.getString())});
+            d.setAdditionalOptions(new JButton[]{new JButton(DictNbg.SHUFFLE.toString())});
 
             DialogDisplayer.getDefault().notify(d);
         });

@@ -1,5 +1,4 @@
 Manifest-Version: 1.0
 OpenIDE-Module-Install: org/nbgames/yaya/Installer.class
-OpenIDE-Module-Layer: org/nbgames/yaya/layer.xml
 OpenIDE-Module-Localizing-Bundle: org/nbgames/yaya/Bundle.properties
 

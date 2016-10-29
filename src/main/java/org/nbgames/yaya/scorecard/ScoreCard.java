@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright 2016 Patrik Karlsson.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -33,12 +33,12 @@ import javax.swing.border.BevelBorder;
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.SoftBevelBorder;
-import org.nbgames.core.CircularInt;
 import org.nbgames.core.NbGames;
 import org.nbgames.yaya.Options;
 import org.nbgames.yaya.gamedef.GameDef;
 import org.nbgames.yaya.gamedef.GameType;
 import org.nbgames.yaya.scorecard.ScoreCardObservable.ScoreCardEvent;
+import se.trixon.almond.util.CircularInt;
 import se.trixon.almond.util.GraphicsHelper;
 
 /**
