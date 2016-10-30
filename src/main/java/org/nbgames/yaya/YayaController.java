@@ -16,11 +16,11 @@
 package org.nbgames.yaya;
 
 import javax.swing.JButton;
+import javax.swing.JPanel;
 import org.nbgames.core.DictNbg;
 import org.nbgames.core.GameCategory;
 import org.nbgames.core.GameController;
 import org.nbgames.core.api.DiceGameProvider;
-import org.nbgames.core.base.GamePanel;
 import org.nbgames.core.game.NewGameController;
 import org.nbgames.core.game.NewGameDialogManager;
 import org.openide.DialogDescriptor;
@@ -50,7 +50,17 @@ public class YayaController extends GameController implements DiceGameProvider, 
     }
 
     @Override
-    public GamePanel getGamePanel() {
+    public String getId() {
+        return getClass().getName();
+    }
+
+    @Override
+    public GameCategory getCategory() {
+        return GameCategory.DICE;
+    }
+
+    @Override
+    public JPanel getPanel() {
         if (mGamePanel == null) {
             mGamePanel = new YayaPanel();
             onRequestNewGameStart();
@@ -60,13 +70,8 @@ public class YayaController extends GameController implements DiceGameProvider, 
     }
 
     @Override
-    public String getId() {
-        return getClass().getName();
-    }
-
-    @Override
-    public GameCategory getCategory() {
-        return GameCategory.DICE;
+    public JPanel getSettingsPanel() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
