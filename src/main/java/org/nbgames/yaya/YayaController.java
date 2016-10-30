@@ -20,7 +20,7 @@ import org.nbgames.core.DictNbg;
 import org.nbgames.core.GameCategory;
 import org.nbgames.core.GameController;
 import org.nbgames.core.api.DiceGameProvider;
-import org.nbgames.core.api.GameProvider;
+import org.nbgames.core.base.GamePanel;
 import org.nbgames.core.game.NewGameController;
 import org.nbgames.core.game.NewGameDialogManager;
 import org.openide.DialogDescriptor;
@@ -36,7 +36,7 @@ import org.openide.windows.WindowManager;
  * @author Patrik Karlsson <patrik@trixon.se>
  */
 @ServiceProviders(value = {
-    @ServiceProvider(service = GameProvider.class)
+    @ServiceProvider(service = GameController.class)
     ,
     @ServiceProvider(service = DiceGameProvider.class)}
 )
@@ -44,29 +44,29 @@ public class YayaController extends GameController implements DiceGameProvider, 
 
     public static final String LOG_TITLE = "Yaya";
 
-    private final YayaPanel mGamePanel;
-    private YayaTopComponent mGameTopComponent;
+    private YayaPanel mGamePanel;
 
     public YayaController() {
-        mGamePanel = null;
     }
 
-    public YayaController(YayaTopComponent gameTopComponent) {
-        super(gameTopComponent);
-        mGameTopComponent = gameTopComponent;
-        mGamePanel = new YayaPanel(this);
-        setGamePanel(mGamePanel);
-        gameTopComponent.setGamePanel(mGamePanel);
+    @Override
+    public GamePanel getGamePanel() {
+        if (mGamePanel == null) {
+            mGamePanel = new YayaPanel();
+            onRequestNewGameStart();
+        }
+
+        return mGamePanel;
+    }
+
+    @Override
+    public String getId() {
+        return getClass().getName();
     }
 
     @Override
     public GameCategory getCategory() {
         return GameCategory.DICE;
-    }
-
-    @Override
-    public String getOptionsPath() {
-        return "Dice/Yaya";
     }
 
     @Override
@@ -78,7 +78,7 @@ public class YayaController extends GameController implements DiceGameProvider, 
         mGamePanel.newGame();
         updateStatusBar();
         String name = NbBundle.getMessage(getClass(), "CTL_NameType", mGamePanel.getGameTitle());
-        mGameTopComponent.setName(name);
+//        mGameTopComponent.setName(name);
     }
 
     @Override
