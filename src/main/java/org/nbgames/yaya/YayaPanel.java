@@ -33,7 +33,7 @@ import org.nbgames.yaya.scorecard.ScoreCardObservable.ScoreCardEvent;
  */
 public class YayaPanel extends GamePanel implements Observer {
 
-    private YayaController mGameController;
+    private Yaya mGameController;
     private DiceBoard mDiceBoard;
     private boolean mRollable = true;
     private int mNumOfPlayers;
@@ -48,7 +48,7 @@ public class YayaPanel extends GamePanel implements Observer {
         initComponents();
     }
 
-    public YayaPanel(YayaController gameController) {
+    public YayaPanel(Yaya gameController) {
         this();
 
         mGameController = gameController;
@@ -112,7 +112,7 @@ public class YayaPanel extends GamePanel implements Observer {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
     void newGame() {
-        NbGames.outln(YayaController.LOG_TITLE, "newGame");
+        NbGames.outln(Yaya.LOG_TITLE, "newGame");
 //        if (numOfPlayers != settings.getNumOfPlayers()) {
 //            numOfPlayers = settings.getNumOfPlayers();
 //            initRule(settings.getRule());

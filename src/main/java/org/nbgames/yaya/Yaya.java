@@ -15,21 +15,14 @@
  */
 package org.nbgames.yaya;
 
-import javax.swing.JButton;
 import javax.swing.JPanel;
-import org.nbgames.core.DictNbg;
 import org.nbgames.core.GameCategory;
 import org.nbgames.core.GameController;
 import org.nbgames.core.api.DiceGameProvider;
-import org.nbgames.core.game.NewGameController;
-import org.nbgames.core.game.NewGameDialogManager;
-import org.openide.DialogDescriptor;
-import org.openide.DialogDisplayer;
-import org.openide.awt.StatusDisplayer;
+import org.nbgames.core.base.NewGamePanel;
 import org.openide.util.NbBundle;
 import org.openide.util.lookup.ServiceProvider;
 import org.openide.util.lookup.ServiceProviders;
-import org.openide.windows.WindowManager;
 
 /**
  *
@@ -40,23 +33,23 @@ import org.openide.windows.WindowManager;
     ,
     @ServiceProvider(service = DiceGameProvider.class)}
 )
-public class YayaController extends GameController implements DiceGameProvider, NewGameController {
+public class Yaya extends GameController implements DiceGameProvider {
 
     public static final String LOG_TITLE = "Yaya";
 
     private YayaPanel mGamePanel;
 
-    public YayaController() {
-    }
-
-    @Override
-    public String getId() {
-        return getClass().getName();
+    public Yaya() {
     }
 
     @Override
     public GameCategory getCategory() {
         return GameCategory.DICE;
+    }
+
+    @Override
+    public NewGamePanel getNewGamePanel() {
+        return new YayaNewGamePanel();
     }
 
     @Override
@@ -70,36 +63,19 @@ public class YayaController extends GameController implements DiceGameProvider, 
     }
 
     @Override
-    public JPanel getSettingsPanel() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public String getHelp() {
+        return "yaya help";
     }
 
     @Override
-    public void onRequestNewGameCancel() {
+    public JPanel getOptionsPanel() {
+        return new JPanel();
     }
 
     @Override
     public void onRequestNewGameStart() {
+        System.out.println("onRequestNewGameStart " + getName());
         mGamePanel.newGame();
-        updateStatusBar();
         String name = NbBundle.getMessage(getClass(), "CTL_NameType", mGamePanel.getGameTitle());
-//        mGameTopComponent.setName(name);
-    }
-
-    @Override
-    public void requestNewGame() {
-        WindowManager.getDefault().invokeWhenUIReady(() -> {
-            NewGameDialogManager manager = new NewGameDialogManager(new YayaNewGamePanel(), YayaController.this);
-
-            DialogDescriptor d = manager.getDialogDescriptor();
-            d.setAdditionalOptions(new JButton[]{new JButton(DictNbg.SHUFFLE.toString())});
-
-            DialogDisplayer.getDefault().notify(d);
-        });
-    }
-
-    @Override
-    public void updateStatusBar() {
-        StatusDisplayer.getDefault().setStatusText(mGamePanel.getGameTitle(), StatusDisplayer.IMPORTANCE_ERROR_HIGHLIGHT);
     }
 }

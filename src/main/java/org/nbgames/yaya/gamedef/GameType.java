@@ -18,7 +18,7 @@ package org.nbgames.yaya.gamedef;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.ResourceBundle;
-import org.nbgames.yaya.YayaController;
+import org.nbgames.yaya.Yaya;
 import org.openide.util.NbBundle;
 
 /**
@@ -44,7 +44,7 @@ public class GameType {
     public static final String VARIANT_STANDARD = "standard";
     public static final String VARIANT_UPPER_LOWER = "upper_lower";
     private String mAuthor;
-    private final ResourceBundle mBundle = NbBundle.getBundle(YayaController.class);
+    private final ResourceBundle mBundle = NbBundle.getBundle(Yaya.class);
     private int mDefaultVariant;
     private GameRows mGameRows = new GameRows();
     private String mId;

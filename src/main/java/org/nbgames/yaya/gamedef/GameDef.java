@@ -23,7 +23,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
 import org.nbgames.core.NbGames;
 import org.nbgames.core.json.JsonHelper;
-import org.nbgames.yaya.YayaController;
+import org.nbgames.yaya.Yaya;
 import org.nbgames.yaya.api.GameLoader;
 import org.openide.util.Lookup;
 import se.trixon.almond.util.FileHelper;
@@ -113,7 +113,7 @@ public enum GameDef {
         Collection<? extends GameLoader> allGameLoaders = Lookup.getDefault().lookupAll(GameLoader.class);
 
         for (GameLoader gameLoader : allGameLoaders) {
-            NbGames.outln(YayaController.LOG_TITLE, String.format("Found GameLoader in %s.", gameLoader.getId()));
+            NbGames.outln(Yaya.LOG_TITLE, String.format("Found GameLoader in %s.", gameLoader.getId()));
             String jsonString = FileHelper.convertStreamToString(gameLoader.getInputStream());
             parse(jsonString);
         }
