@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright 2016 Patrik Karlsson.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -19,9 +19,9 @@ import java.awt.BorderLayout;
 import java.util.Observable;
 import java.util.Observer;
 import org.nbgames.core.NbGames;
+import org.nbgames.core.base.GamePanel;
 import org.nbgames.core.dice.DiceBoard;
 import org.nbgames.core.dice.DiceBoard.RollEvent;
-import org.nbgames.core.base.GamePanel;
 import org.nbgames.yaya.gamedef.GameDef;
 import org.nbgames.yaya.gamedef.GameType;
 import org.nbgames.yaya.scorecard.ScoreCard;
@@ -111,7 +111,8 @@ public class YayaPanel extends GamePanel implements Observer {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
-    void newGame() {
+    @Override
+    public void newGame() {
         NbGames.outln(Yaya.LOG_TITLE, "newGame");
 //        if (numOfPlayers != settings.getNumOfPlayers()) {
 //            numOfPlayers = settings.getNumOfPlayers();
