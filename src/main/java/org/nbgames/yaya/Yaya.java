@@ -19,6 +19,7 @@ import javax.swing.JPanel;
 import org.nbgames.core.GameCategory;
 import org.nbgames.core.GameController;
 import org.nbgames.core.api.DiceGameProvider;
+import org.nbgames.core.api.OptionsPanel;
 import org.nbgames.core.base.NewGamePanel;
 import org.openide.util.NbBundle;
 import org.openide.util.lookup.ServiceProvider;
@@ -53,6 +54,11 @@ public class Yaya extends GameController implements DiceGameProvider {
     }
 
     @Override
+    public OptionsPanel getOptionsPanel() {
+        return null;
+    }
+
+    @Override
     public JPanel getPanel() {
         if (mGamePanel == null) {
             mGamePanel = new YayaPanel();
@@ -65,11 +71,6 @@ public class Yaya extends GameController implements DiceGameProvider {
     @Override
     public String getHelp() {
         return "yaya help";
-    }
-
-    @Override
-    public JPanel getOptionsPanel() {
-        return new JPanel();
     }
 
     @Override
