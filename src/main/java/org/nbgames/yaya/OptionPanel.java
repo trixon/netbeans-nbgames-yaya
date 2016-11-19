@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright 2016 Patrik Karlsson.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,6 +16,7 @@
 package org.nbgames.yaya;
 
 import java.awt.Color;
+import org.nbgames.core.api.OptionsPanel;
 import se.trixon.almond.nbp.dialogs.ColorChooserDialog;
 import se.trixon.almond.nbp.swing.ColorChooserButton;
 import se.trixon.almond.util.GraphicsHelper;
@@ -24,13 +25,11 @@ import se.trixon.almond.util.GraphicsHelper;
  *
  * @author Patrik Karlsson <patrik@trixon.se>
  */
-final class OptionPanel extends javax.swing.JPanel {
+final class OptionPanel extends OptionsPanel {
 
-    private final OptionPanelController mController;
-    private final Options mOptions = Options.INSTANCE;
+    private final Options mOptions = Options.getInstance();
 
-    OptionPanel(OptionPanelController controller) {
-        mController = controller;
+    public OptionPanel() {
         initComponents();
     }
 
@@ -155,7 +154,6 @@ final class OptionPanel extends javax.swing.JPanel {
         ColorChooserButton button = (ColorChooserButton) evt.getSource();
         button.setColor(ColorChooserDialog.showDialog(button.getColor()));
         updateDefaultButton();
-        mController.changed();
     }//GEN-LAST:event_colorChooserButtonActionPerformed
 
     private void defaultColorsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_defaultColorsButtonActionPerformed
@@ -167,12 +165,10 @@ final class OptionPanel extends javax.swing.JPanel {
         indicatorHighColorChooserButton.setColor(Options.ColorItem.INDICATOR_HI.getDefaultColor());
         indicatorLowColorChooserButton.setColor(Options.ColorItem.INDICATOR_LO.getDefaultColor());
 
-        mController.changed();
         updateDefaultButton();
     }//GEN-LAST:event_defaultColorsButtonActionPerformed
 
     private void useSymbolsCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_useSymbolsCheckBoxActionPerformed
-        mController.changed();
     }//GEN-LAST:event_useSymbolsCheckBoxActionPerformed
 
     private void updateDefaultButton() {
@@ -194,7 +190,8 @@ final class OptionPanel extends javax.swing.JPanel {
         return GraphicsHelper.colorToHexInt(currentColor) != GraphicsHelper.colorToHexInt(defaultColor);
     }
 
-    void load() {
+    @Override
+    public void load() {
         useSymbolsCheckBox.setSelected(mOptions.isUsingSymbols());
         backgroundColorChooserButton.setColor(mOptions.getColor(Options.ColorItem.BACKGROUND));
         scorecardColorChooserButton.setColor(mOptions.getColor(Options.ColorItem.SCORECARD));

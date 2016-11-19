@@ -38,7 +38,7 @@ public class YayaPanel extends GamePanel implements Observer {
     private boolean mRollable = true;
     private int mNumOfPlayers;
     private ScoreCard mScoreCard;
-    private final Options mOptions = Options.INSTANCE;
+    private final Options mOptions = Options.getInstance();
     private GameType mGameType;
 
     /**
@@ -46,6 +46,7 @@ public class YayaPanel extends GamePanel implements Observer {
      */
     public YayaPanel() {
         initComponents();
+        GameDef.INSTANCE.init();
     }
 
     public YayaPanel(Yaya gameController) {

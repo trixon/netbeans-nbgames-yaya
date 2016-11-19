@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright 2016 Patrik Karlsson.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -25,9 +25,8 @@ import se.trixon.almond.util.GraphicsHelper;
  *
  * @author Patrik Karlsson <patrik@trixon.se>
  */
-public enum Options {
+public class Options {
 
-    INSTANCE;
     public static final String KEY_GAME_TYPE_ID = "gameType";
     public static final String KEY_NUM_OF_PLAYERS = "numOfPlayers";
     public static final String KEY_SHOW_HI_SCORE_COLUMN = "showHiScoreColumn";
@@ -50,6 +49,10 @@ public enum Options {
     private static final boolean DEFAULT_USE_SYMBOLS = false;
     private static final Preferences mPreferences = NbPreferences.forModule(Options.class);
     private final Preferences mPreferencesColors = NbPreferences.forModule(getClass()).node("colors");
+
+    public static Options getInstance() {
+        return Holder.INSTANCE;
+    }
 
     public static Preferences getPreferences() {
         return mPreferences;
@@ -157,5 +160,10 @@ public enum Options {
         public String getKey() {
             return name().toLowerCase();
         }
+    }
+
+    private static class Holder {
+
+        private static final Options INSTANCE = new Options();
     }
 }

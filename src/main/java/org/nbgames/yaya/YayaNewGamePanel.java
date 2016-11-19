@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright 2016 Patrik Karlsson.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -30,7 +30,7 @@ public class YayaNewGamePanel extends NewGamePanel {
 
     private final GameDef mGameDef = GameDef.INSTANCE;
     private GameType mGameType;
-    private final Options mOptions = Options.INSTANCE;
+    private final Options mOptions = Options.getInstance();
 
     /**
      * Creates new form YayaNewGamePanel

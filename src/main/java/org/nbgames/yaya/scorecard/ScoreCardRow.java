@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright 2016 Patrik Karlsson.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -41,6 +41,7 @@ public class ScoreCardRow {
     private RowLabel mRowLabel = new RowLabel();
     private ScoreCard mScoreCard;
     private int mValue;
+    private final Options mOptions = Options.getInstance();
 
     ScoreCardRow(ScoreCard scoreCard, PlayerColumn playerColumn, GameRow gameRow, int row) {
         mScoreCard = scoreCard;
@@ -61,7 +62,7 @@ public class ScoreCardRow {
     public void clearPreview() {
         if (isPlayable() && !isRegistered()) {
             mRowLabel.setText("");
-            mRowLabel.setCurrentBackgroundColor(Options.INSTANCE.getColor(Options.ColorItem.ROW));
+            mRowLabel.setCurrentBackgroundColor(mOptions.getColor(Options.ColorItem.ROW));
 
             mRowLabel.setBackground();
         }
@@ -126,7 +127,7 @@ public class ScoreCardRow {
 
     public void newGame() {
         mRegistered = false;
-        mRowLabel.setCurrentBackgroundColor(Options.INSTANCE.getColor(Options.ColorItem.ROW));
+        mRowLabel.setCurrentBackgroundColor(mOptions.getColor(Options.ColorItem.ROW));
         mRowLabel.setText(null);
         mPreview = 0;
         mValue = 0;
@@ -143,14 +144,14 @@ public class ScoreCardRow {
     public void setEnabled(boolean aState) {
         if (mGameRow.isPlayable()) {
             mRowLabel.setFont(mRowLabel.getFont().deriveFont(Font.PLAIN));
-            mRowLabel.setCurrentBackgroundColor(Options.INSTANCE.getColor(Options.ColorItem.ROW));
+            mRowLabel.setCurrentBackgroundColor(mOptions.getColor(Options.ColorItem.ROW));
         }
 
         if (aState) {
             if (mGameRow.isSum() || mGameRow.isBonus()) {
-                mRowLabel.setBackground(Options.INSTANCE.getColor(Options.ColorItem.SUM));
+                mRowLabel.setBackground(mOptions.getColor(Options.ColorItem.SUM));
             } else {
-                mRowLabel.setBackground(Options.INSTANCE.getColor(Options.ColorItem.ROW));
+                mRowLabel.setBackground(mOptions.getColor(Options.ColorItem.ROW));
             }
 
             if (mGameRow.isRollCounter()) {
@@ -161,9 +162,9 @@ public class ScoreCardRow {
 
         } else {
             if (mGameRow.isSum() || mGameRow.isBonus()) {
-                mRowLabel.setBackground(GraphicsHelper.colorAndMask(Options.INSTANCE.getColor(Options.ColorItem.SUM), COLOR_MASK));
+                mRowLabel.setBackground(GraphicsHelper.colorAndMask(mOptions.getColor(Options.ColorItem.SUM), COLOR_MASK));
             } else {
-                mRowLabel.setBackground(GraphicsHelper.colorAndMask(Options.INSTANCE.getColor(Options.ColorItem.ROW), COLOR_MASK));
+                mRowLabel.setBackground(GraphicsHelper.colorAndMask(mOptions.getColor(Options.ColorItem.ROW), COLOR_MASK));
             }
 
             if (mGameRow.isRollCounter()) {
@@ -215,12 +216,12 @@ public class ScoreCardRow {
             mRowLabel.setHorizontalAlignment(SwingConstants.LEADING);
 
             if (mPreview < mGameRow.getLim()) {
-                mRowLabel.setCurrentBackgroundColor(Options.INSTANCE.getColor(Options.ColorItem.INDICATOR_LO));
+                mRowLabel.setCurrentBackgroundColor(mOptions.getColor(Options.ColorItem.INDICATOR_LO));
             } else {
-                mRowLabel.setCurrentBackgroundColor(Options.INSTANCE.getColor(Options.ColorItem.INDICATOR_HI));
+                mRowLabel.setCurrentBackgroundColor(mOptions.getColor(Options.ColorItem.INDICATOR_HI));
             }
         } else {
-            mRowLabel.setCurrentBackgroundColor(Options.INSTANCE.getColor(Options.ColorItem.ROW));
+            mRowLabel.setCurrentBackgroundColor(mOptions.getColor(Options.ColorItem.ROW));
         }
 
         mRowLabel.setText(text);

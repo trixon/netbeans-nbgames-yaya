@@ -39,6 +39,7 @@ public class Yaya extends GameController implements DiceGameProvider {
     public static final String LOG_TITLE = "Yaya";
 
     private YayaPanel mGamePanel;
+    private OptionPanel mOptionPanel;
 
     public Yaya() {
     }
@@ -49,13 +50,22 @@ public class Yaya extends GameController implements DiceGameProvider {
     }
 
     @Override
+    public String getHelp() {
+        return "yaya help";
+    }
+
+    @Override
     public NewGamePanel getNewGamePanel() {
         return new YayaNewGamePanel();
     }
 
     @Override
     public OptionsPanel getOptionsPanel() {
-        return null;
+        if (mOptionPanel == null) {
+            mOptionPanel = new OptionPanel();
+        }
+
+        return mOptionPanel;
     }
 
     @Override
@@ -66,11 +76,6 @@ public class Yaya extends GameController implements DiceGameProvider {
         }
 
         return mGamePanel;
-    }
-
-    @Override
-    public String getHelp() {
-        return "yaya help";
     }
 
     @Override

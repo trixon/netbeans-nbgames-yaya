@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright 2016 Patrik Karlsson.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -35,7 +35,7 @@ public class HeaderColumn {
     private ScoreCardRow[] mMaxColumn;
     private int[] mMaxValues;
     private int mNumOfRows;
-    private final Options mOptions = Options.INSTANCE;
+    private final Options mOptions = Options.getInstance();
     private ScoreCardRow[] mRows;
     private final ScoreCard mScoreCard;
 
@@ -102,8 +102,8 @@ public class HeaderColumn {
     }
 
     private void initRows() {
-        boolean showMaxColumn = Options.INSTANCE.isShowingMaxColumn();
-        boolean showHiScoreColumn = Options.INSTANCE.isShowingHiScoreColumn();
+        boolean showMaxColumn = mOptions.isShowingMaxColumn();
+        boolean showHiScoreColumn = mOptions.isShowingHiScoreColumn();
 
         GameRows rowsRule = mGameType.getGameRows();
         mLimValues = rowsRule.getLim();

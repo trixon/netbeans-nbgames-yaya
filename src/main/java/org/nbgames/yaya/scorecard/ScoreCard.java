@@ -57,7 +57,7 @@ public class ScoreCard {
     private int mNumOfRolls;
     private int mNumOfRows;
     private final ScoreCardObservable mObservable = new ScoreCardObservable();
-    private final Options mOptions = Options.INSTANCE;
+    private final Options mOptions = Options.getInstance();
     private final JPanel mPanel = new JPanel();
     private LinkedList<PlayerColumn> mPlayerPositions;
     private LinkedList<PlayerColumn> mPlayers = new LinkedList<>();
