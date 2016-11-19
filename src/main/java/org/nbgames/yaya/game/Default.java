@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright 2016 Patrik Karlsson.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,26 +15,17 @@
  */
 package org.nbgames.yaya.game;
 
-import java.io.InputStream;
-import org.nbgames.yaya.api.GameLoader;
+import org.nbgames.yaya.api.GameProvider;
 import org.openide.util.lookup.ServiceProvider;
 
 /**
  *
- * @author Patrik Karlsson <patrik@trixon.se>
+ * @author Patrik Karlsson
  */
-@ServiceProvider(service = GameLoader.class)
-public class Default implements GameLoader {
+@ServiceProvider(service = GameProvider.class)
+public class Default extends GameProvider {
 
-    private final String RESOURCE_PATH = "/org/nbgames/yaya/game/default.json";
-
-    @Override
-    public String getId() {
-        return RESOURCE_PATH;
-    }
-
-    @Override
-    public InputStream getInputStream() {
-        return getClass().getResourceAsStream(RESOURCE_PATH);
+    public Default() {
+        super("default.json");
     }
 }

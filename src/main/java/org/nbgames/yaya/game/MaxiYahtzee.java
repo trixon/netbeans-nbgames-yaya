@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright 2016 Patrik Karlsson.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,27 +15,17 @@
  */
 package org.nbgames.yaya.game;
 
-import java.io.InputStream;
-import org.nbgames.yaya.api.GameLoader;
+import org.nbgames.yaya.api.GameProvider;
 import org.openide.util.lookup.ServiceProvider;
 
 /**
  *
- * @author Patrik Karlsson <patrik@trixon.se>
+ * @author Patrik Karlsson
  */
-@ServiceProvider(service = GameLoader.class)
-public class MaxiYahtzee implements GameLoader {
+@ServiceProvider(service = GameProvider.class)
+public class MaxiYahtzee extends GameProvider {
 
-    private final String RESOURCE_PATH = "/org/nbgames/yaya/game/maxi_yahtzee.json";
-
-    @Override
-    public String getId() {
-        return RESOURCE_PATH;
+    public MaxiYahtzee() {
+        super("maxi_yahtzee.json");
     }
-
-    @Override
-    public InputStream getInputStream() {
-        return getClass().getResourceAsStream(RESOURCE_PATH);
-    }
-
 }

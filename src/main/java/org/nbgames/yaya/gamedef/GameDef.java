@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright 2016 Patrik Karlsson.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -24,9 +24,8 @@ import org.json.simple.JSONValue;
 import org.nbgames.core.NbGames;
 import org.nbgames.core.json.JsonHelper;
 import org.nbgames.yaya.Yaya;
-import org.nbgames.yaya.api.GameLoader;
+import org.nbgames.yaya.api.GameProvider;
 import org.openide.util.Lookup;
-import se.trixon.almond.util.FileHelper;
 
 /**
  *
@@ -110,12 +109,11 @@ public enum GameDef {
 
     public void init() {
         mGameTypes = new LinkedList<GameType>();
-        Collection<? extends GameLoader> allGameLoaders = Lookup.getDefault().lookupAll(GameLoader.class);
+        Collection<? extends GameProvider> gameProviders = Lookup.getDefault().lookupAll(GameProvider.class);
 
-        for (GameLoader gameLoader : allGameLoaders) {
-            NbGames.outln(Yaya.LOG_TITLE, String.format("Found GameLoader in %s.", gameLoader.getId()));
-            String jsonString = FileHelper.convertStreamToString(gameLoader.getInputStream());
-            parse(jsonString);
+        for (GameProvider gameProvider : gameProviders) {
+            NbGames.outln(Yaya.LOG_TITLE, String.format("Found GameLoader in %s.", gameProvider.getId()));
+            parse(gameProvider.getDefinition());
         }
 
         Collections.sort(mGameTypes, GameType.NameComparator);
@@ -138,8 +136,8 @@ public enum GameDef {
         GameRows gameRows = new GameRows();
         JSONArray rowsArray = (JSONArray) gameObject.get("rows");
 
-        for (int j = 0; j < rowsArray.size(); j++) {
-            JSONObject rowObject = (JSONObject) rowsArray.get(j);
+        for (int i = 0; i < rowsArray.size(); i++) {
+            JSONObject rowObject = (JSONObject) rowsArray.get(i);
             GameRow gameRow = new GameRow();
             gameRow.setId((String) rowObject.get("id"));
             gameRow.setTitle(JsonHelper.parseLocalizedKey(rowObject, "title"));
