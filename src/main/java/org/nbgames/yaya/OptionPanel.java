@@ -16,7 +16,7 @@
 package org.nbgames.yaya;
 
 import java.awt.Color;
-import org.nbgames.core.api.OptionsPanel;
+import org.nbgames.core.api.ui.OptionsPanel;
 import se.trixon.almond.nbp.dialogs.ColorChooserDialog;
 import se.trixon.almond.nbp.swing.ColorChooserButton;
 import se.trixon.almond.util.GraphicsHelper;

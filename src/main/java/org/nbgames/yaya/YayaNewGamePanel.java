@@ -17,14 +17,15 @@ package org.nbgames.yaya;
 
 import java.util.Arrays;
 import javax.swing.DefaultComboBoxModel;
-import org.nbgames.core.base.NewGamePanel;
+import org.nbgames.core.api.DictNbg;
+import org.nbgames.core.api.ui.NewGamePanel;
 import org.nbgames.yaya.gamedef.GameDef;
 import org.nbgames.yaya.gamedef.GameType;
 import org.openide.util.NbBundle;
 
 /**
  *
- * @author Patrik Karlsson <patrik@trixon.se>
+ * @author Patrik Karlsson
  */
 public class YayaNewGamePanel extends NewGamePanel {
 
@@ -37,22 +38,28 @@ public class YayaNewGamePanel extends NewGamePanel {
      */
     public YayaNewGamePanel() {
         initComponents();
-        mGameDef.init();
-        typeComboBox.setModel(new DefaultComboBoxModel(mGameDef.getTitleArray()));
-        typeComboBox.setSelectedIndex(mGameDef.getIndexForId(mOptions.getGameTypeId()));
-        numOfPlayersComboBox.setSelectedIndex(mOptions.getNumOfPlayers() - 1);
+
+        variantLabel.setFont(gameLabel.getFont());
+        selectPlayersPanel.getLabel().setFont(gameLabel.getFont());
     }
 
     @Override
-    public void saveState() {
-        String gameTypeId = mGameDef.getIdForIndex(typeComboBox.getSelectedIndex());
+    public void load() {
+        mGameDef.init();
+        gameComboBox.setModel(new DefaultComboBoxModel(mGameDef.getTitleArray()));
+        gameComboBox.setSelectedIndex(mGameDef.getIndexForId(mOptions.getGameTypeId()));
+        selectPlayersPanel.setNumOfPlayers(mOptions.getNumOfPlayers());
+    }
 
+    @Override
+    public void save() {
+        String gameTypeId = mGameDef.getIdForIndex(gameComboBox.getSelectedIndex());
         mOptions.setGameTypeId(gameTypeId);
         String variantTitle = (String) variantComboBox.getSelectedItem();
         String variantByTitle = mGameType.getVariantByTitle(variantTitle);
 
         mOptions.setGameVariant(gameTypeId, variantByTitle);
-        mOptions.setNumOfPlayers(numOfPlayersComboBox.getSelectedIndex() + 1);
+        mOptions.setNumOfPlayers(selectPlayersPanel.getNumOfPlayers());
     }
 
     /**
@@ -63,98 +70,104 @@ public class YayaNewGamePanel extends NewGamePanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
-        typeLabel = new javax.swing.JLabel();
-        typeComboBox = new javax.swing.JComboBox();
+        gameLabel = new javax.swing.JLabel();
+        gameComboBox = new javax.swing.JComboBox();
         byLineLabel = new javax.swing.JLabel();
         variantLabel = new javax.swing.JLabel();
         variantComboBox = new javax.swing.JComboBox();
-        numOfPlayersLabel = new javax.swing.JLabel();
-        numOfPlayersComboBox = new javax.swing.JComboBox();
-        selectPlayersPanel1 = new org.nbgames.core.game.SelectPlayersPanel();
+        selectPlayersPanel = new org.nbgames.core.api.ui.SelectPlayersPanel();
+        jPanel1 = new javax.swing.JPanel();
 
-        typeLabel.setLabelFor(typeComboBox);
-        org.openide.awt.Mnemonics.setLocalizedText(typeLabel, org.openide.util.NbBundle.getMessage(YayaNewGamePanel.class, "YayaNewGamePanel.typeLabel.text")); // NOI18N
+        setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 8, 0, 8));
+        setMinimumSize(new java.awt.Dimension(300, 261));
+        setLayout(new java.awt.GridBagLayout());
 
-        typeComboBox.addActionListener(new java.awt.event.ActionListener() {
+        gameLabel.setFont(gameLabel.getFont().deriveFont(gameLabel.getFont().getStyle() | java.awt.Font.BOLD, gameLabel.getFont().getSize()+4));
+        gameLabel.setLabelFor(gameComboBox);
+        org.openide.awt.Mnemonics.setLocalizedText(gameLabel, DictNbg.GAME.toString());
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        add(gameLabel, gridBagConstraints);
+
+        gameComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                typeComboBoxActionPerformed(evt);
+                gameComboBoxActionPerformed(evt);
             }
         });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        add(gameComboBox, gridBagConstraints);
 
         byLineLabel.setFont(new java.awt.Font("Lucida Grande", 2, 13)); // NOI18N
         org.openide.awt.Mnemonics.setLocalizedText(byLineLabel, "byLine"); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(6, 6, 0, 0);
+        add(byLineLabel, gridBagConstraints);
 
         variantLabel.setLabelFor(variantComboBox);
-        org.openide.awt.Mnemonics.setLocalizedText(variantLabel, org.openide.util.NbBundle.getMessage(YayaNewGamePanel.class, "YayaNewGamePanel.variantLabel.text")); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(variantLabel, DictNbg.VARIANT.toString());
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        add(variantLabel, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        add(variantComboBox, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(8, 0, 0, 0);
+        add(selectPlayersPanel, gridBagConstraints);
 
-        numOfPlayersLabel.setLabelFor(numOfPlayersComboBox);
-        org.openide.awt.Mnemonics.setLocalizedText(numOfPlayersLabel, org.openide.util.NbBundle.getMessage(YayaNewGamePanel.class, "YayaNewGamePanel.numOfPlayersLabel.text")); // NOI18N
-
-        numOfPlayersComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8" }));
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(numOfPlayersComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(typeComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(variantComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(typeLabel)
-                            .addComponent(variantLabel)
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(byLineLabel))
-                            .addComponent(numOfPlayersLabel))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(selectPlayersPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap())
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(typeLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(typeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(byLineLabel)
-                .addGap(18, 18, 18)
-                .addComponent(variantLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(variantComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(numOfPlayersLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(numOfPlayersComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(selectPlayersPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.weighty = 1.0;
+        add(jPanel1, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void typeComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_typeComboBoxActionPerformed
-        mGameType = mGameDef.getType(mGameDef.getIdForIndex(typeComboBox.getSelectedIndex()));
+    private void gameComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gameComboBoxActionPerformed
+        mGameType = mGameDef.getType(mGameDef.getIdForIndex(gameComboBox.getSelectedIndex()));
         String byLine = NbBundle.getMessage(getClass(), "ByLine", mGameType.getAuthor());
         byLineLabel.setText(byLine);
         String[] localizedVariant = mGameType.getLocalizedVariants().clone();
         Arrays.sort(localizedVariant);
         variantComboBox.setModel(new DefaultComboBoxModel(localizedVariant));
         variantComboBox.setSelectedIndex(mGameType.getLocalizedIndexForVariantId(mOptions.getGameVariant(mGameType.getId())));
-    }//GEN-LAST:event_typeComboBoxActionPerformed
+    }//GEN-LAST:event_gameComboBoxActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel byLineLabel;
-    private javax.swing.JComboBox numOfPlayersComboBox;
-    private javax.swing.JLabel numOfPlayersLabel;
-    private org.nbgames.core.game.SelectPlayersPanel selectPlayersPanel1;
-    private javax.swing.JComboBox typeComboBox;
-    private javax.swing.JLabel typeLabel;
+    private javax.swing.JComboBox gameComboBox;
+    private javax.swing.JLabel gameLabel;
+    private javax.swing.JPanel jPanel1;
+    private org.nbgames.core.api.ui.SelectPlayersPanel selectPlayersPanel;
     private javax.swing.JComboBox variantComboBox;
     private javax.swing.JLabel variantLabel;
     // End of variables declaration//GEN-END:variables

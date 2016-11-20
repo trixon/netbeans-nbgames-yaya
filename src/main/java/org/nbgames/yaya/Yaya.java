@@ -15,19 +15,18 @@
  */
 package org.nbgames.yaya;
 
-import javax.swing.JPanel;
-import org.nbgames.core.GameCategory;
-import org.nbgames.core.GameController;
-import org.nbgames.core.api.DiceGameProvider;
-import org.nbgames.core.api.OptionsPanel;
-import org.nbgames.core.base.NewGamePanel;
-import org.openide.util.NbBundle;
+import org.nbgames.core.api.GameCategory;
+import org.nbgames.core.api.GameController;
+import org.nbgames.core.api.service.DiceGameProvider;
+import org.nbgames.core.api.ui.GamePanel;
+import org.nbgames.core.api.ui.NewGamePanel;
+import org.nbgames.core.api.ui.OptionsPanel;
 import org.openide.util.lookup.ServiceProvider;
 import org.openide.util.lookup.ServiceProviders;
 
 /**
  *
- * @author Patrik Karlsson <patrik@trixon.se>
+ * @author Patrik Karlsson
  */
 @ServiceProviders(value = {
     @ServiceProvider(service = GameController.class)
@@ -40,6 +39,7 @@ public class Yaya extends GameController implements DiceGameProvider {
 
     private YayaPanel mGamePanel;
     private OptionPanel mOptionPanel;
+    private YayaNewGamePanel mNewGamePanel;
 
     public Yaya() {
     }
@@ -56,7 +56,11 @@ public class Yaya extends GameController implements DiceGameProvider {
 
     @Override
     public NewGamePanel getNewGamePanel() {
-        return new YayaNewGamePanel();
+        if (mNewGamePanel == null) {
+            mNewGamePanel = new YayaNewGamePanel();
+        }
+
+        return mNewGamePanel;
     }
 
     @Override
@@ -69,7 +73,7 @@ public class Yaya extends GameController implements DiceGameProvider {
     }
 
     @Override
-    public JPanel getPanel() {
+    public GamePanel getPanel() {
         if (mGamePanel == null) {
             mGamePanel = new YayaPanel();
             onRequestNewGameStart();
@@ -80,8 +84,6 @@ public class Yaya extends GameController implements DiceGameProvider {
 
     @Override
     public void onRequestNewGameStart() {
-        System.out.println("onRequestNewGameStart " + getName());
-        mGamePanel.newGame();
-        String name = NbBundle.getMessage(getClass(), "CTL_NameType", mGamePanel.getGameTitle());
+        getPanel().newGame();
     }
 }

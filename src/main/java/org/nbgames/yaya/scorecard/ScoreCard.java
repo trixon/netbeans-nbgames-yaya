@@ -33,12 +33,12 @@ import javax.swing.border.BevelBorder;
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.SoftBevelBorder;
-import org.nbgames.core.NbGames;
 import org.nbgames.yaya.Options;
 import org.nbgames.yaya.gamedef.GameDef;
 import org.nbgames.yaya.gamedef.GameType;
 import org.nbgames.yaya.scorecard.ScoreCardObservable.ScoreCardEvent;
 import se.trixon.almond.util.CircularInt;
+import se.trixon.almond.util.Dict;
 import se.trixon.almond.util.GraphicsHelper;
 
 /**
@@ -292,7 +292,7 @@ public class ScoreCard {
     }
 
     private void initActions() {
-        mUndoAction = new AbstractAction(NbGames.getBundle().getString("Undo")) {
+        mUndoAction = new AbstractAction(Dict.UNDO.toString()) {
 
             @Override
             public void actionPerformed(ActionEvent evt) {

@@ -7,7 +7,7 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
     <groupId>org.nbgames</groupId>
-    <artifactId>nbgames-yaya</artifactId>
+    <artifactId>dice-yaya</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>nbm</packaging>
     <build>

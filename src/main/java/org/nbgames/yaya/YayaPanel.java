@@ -18,8 +18,8 @@ package org.nbgames.yaya;
 import java.awt.BorderLayout;
 import java.util.Observable;
 import java.util.Observer;
-import org.nbgames.core.NbGames;
-import org.nbgames.core.base.GamePanel;
+import org.nbgames.core.api.NbGames;
+import org.nbgames.core.api.ui.GamePanel;
 import org.nbgames.core.dice.DiceBoard;
 import org.nbgames.core.dice.DiceBoard.RollEvent;
 import org.nbgames.yaya.gamedef.GameDef;
@@ -33,7 +33,6 @@ import org.nbgames.yaya.scorecard.ScoreCardObservable.ScoreCardEvent;
  */
 public class YayaPanel extends GamePanel implements Observer {
 
-    private Yaya mGameController;
     private DiceBoard mDiceBoard;
     private boolean mRollable = true;
     private int mNumOfPlayers;
@@ -47,13 +46,6 @@ public class YayaPanel extends GamePanel implements Observer {
     public YayaPanel() {
         initComponents();
         GameDef.INSTANCE.init();
-    }
-
-    public YayaPanel(Yaya gameController) {
-        this();
-
-        mGameController = gameController;
-//        AAudioClip.setPlaySoundEffects(true);
     }
 
     public String getGameTitle() {

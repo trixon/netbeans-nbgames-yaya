@@ -21,7 +21,7 @@ import java.util.Stack;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
 import javax.swing.SwingConstants;
-import org.nbgames.core.PlayerManager;
+import org.nbgames.core.api.PlayerManager;
 import org.nbgames.yaya.gamedef.GameRow;
 import org.nbgames.yaya.gamedef.GameRows;
 import org.nbgames.yaya.gamedef.GameType;
