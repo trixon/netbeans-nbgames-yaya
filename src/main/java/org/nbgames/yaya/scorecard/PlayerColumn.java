@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright 2016 Patrik Karlsson.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -18,10 +18,9 @@ package org.nbgames.yaya.scorecard;
 import java.awt.Dimension;
 import java.util.LinkedList;
 import java.util.Stack;
-import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
 import javax.swing.SwingConstants;
-import org.nbgames.core.api.PlayerManager;
+import org.nbgames.core.api.db.manager.PlayerManager;
 import org.nbgames.yaya.gamedef.GameRow;
 import org.nbgames.yaya.gamedef.GameRows;
 import org.nbgames.yaya.gamedef.GameType;
@@ -97,7 +96,7 @@ public class PlayerColumn {
         mNumOfRolls = 0;
         mRowStack.clear();
         setEnabled(false);
-        mComboBox.setModel(new DefaultComboBoxModel(PlayerManager.INSTANCE.getPlayersArray()));
+        mComboBox.setModel(PlayerManager.getInstance().getComboBoxModel());
 
         for (ScoreCardRow scoreCardRow : mRows) {
             scoreCardRow.newGame();
