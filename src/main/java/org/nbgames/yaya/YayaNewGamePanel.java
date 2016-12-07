@@ -49,6 +49,7 @@ public class YayaNewGamePanel extends NewGamePanel {
         gameComboBox.setModel(new DefaultComboBoxModel(mGameDef.getTitleArray()));
         gameComboBox.setSelectedIndex(mGameDef.getIndexForId(mOptions.getGameTypeId()));
         selectPlayersPanel.setNumOfPlayers(mOptions.getNumOfPlayers());
+        selectPlayersPanel.restoreSelection(getClass());
     }
 
     @Override
@@ -60,6 +61,8 @@ public class YayaNewGamePanel extends NewGamePanel {
 
         mOptions.setGameVariant(gameTypeId, variantByTitle);
         mOptions.setNumOfPlayers(selectPlayersPanel.getNumOfPlayers());
+        selectPlayersPanel.saveSelection(getClass());
+        mOptions.setPlayers(selectPlayersPanel.getPlayers());
     }
 
     /**
@@ -131,7 +134,7 @@ public class YayaNewGamePanel extends NewGamePanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(8, 0, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(8, 0, 8, 0);
         add(selectPlayersPanel, gridBagConstraints);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);

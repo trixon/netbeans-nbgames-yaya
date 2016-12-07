@@ -17,13 +17,14 @@ package org.nbgames.yaya;
 
 import java.awt.Color;
 import java.util.prefs.Preferences;
+import org.nbgames.core.api.Player;
 import org.nbgames.yaya.gamedef.GameType;
 import org.openide.util.NbPreferences;
 import se.trixon.almond.util.GraphicsHelper;
 
 /**
  *
- * @author Patrik Karlsson <patrik@trixon.se>
+ * @author Patrik Karlsson
  */
 public class Options {
 
@@ -48,6 +49,7 @@ public class Options {
     private static final boolean DEFAULT_SHOW_MAX_COLUMN = false;
     private static final boolean DEFAULT_USE_SYMBOLS = false;
     private static final Preferences mPreferences = NbPreferences.forModule(Options.class);
+    private Player[] mPlayers;
     private final Preferences mPreferencesColors = NbPreferences.forModule(getClass()).node("colors");
 
     public static Options getInstance() {
@@ -76,6 +78,10 @@ public class Options {
 
     public int getNumOfPlayers() {
         return mPreferences.getInt(KEY_NUM_OF_PLAYERS, DEFAULT_NUM_OF_PLAYERS);
+    }
+
+    public Player[] getPlayers() {
+        return mPlayers;
     }
 
     public Preferences getPreferencesColors() {
@@ -112,6 +118,10 @@ public class Options {
 
     public void setNumOfPlayers(int players) {
         mPreferences.putInt(KEY_NUM_OF_PLAYERS, players);
+    }
+
+    public void setPlayers(Player[] players) {
+        mPlayers = players;
     }
 
     public void setShowHiScoreColumn(boolean state) {

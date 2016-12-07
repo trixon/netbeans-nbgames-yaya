@@ -18,27 +18,28 @@ package org.nbgames.yaya.scorecard;
 import java.awt.Dimension;
 import java.util.LinkedList;
 import java.util.Stack;
-import javax.swing.JComboBox;
+import javax.swing.JLabel;
 import javax.swing.SwingConstants;
-import org.nbgames.core.api.db.manager.PlayerManager;
+import org.nbgames.core.api.Player;
 import org.nbgames.yaya.gamedef.GameRow;
 import org.nbgames.yaya.gamedef.GameRows;
 import org.nbgames.yaya.gamedef.GameType;
 
 /**
  *
- * @author Patrik Karlsson <patrik@trixon.se>
+ * @author Patrik Karlsson
  */
 public class PlayerColumn {
 
     private boolean mActive;
-    private JComboBox mComboBox = new JComboBox();
     private int mCurrentScore;
     private LinkedList<Integer> mDice;
     private GameType mGameType;
+    private JLabel mLabel = new JLabel("XXX");
     private String mName;
     private int mNumOfRolls;
     private int mPlayOrder;
+    private Player mPlayer;
     private Stack<Integer> mRowStack = new Stack<Integer>();
     private ScoreCardRow[] mRows;
     private ScoreCard mScoreCard;
@@ -60,12 +61,12 @@ public class PlayerColumn {
         mNumOfRolls--;
     }
 
-    public JComboBox getComboBox() {
-        return mComboBox;
-    }
-
     public int getCurrentScore() {
         return mCurrentScore;
+    }
+
+    public JLabel getLabel() {
+        return mLabel;
     }
 
     public String getName() {
@@ -78,6 +79,10 @@ public class PlayerColumn {
 
     public int getPlayOrder() {
         return mPlayOrder;
+    }
+
+    public Player getPlayer() {
+        return mPlayer;
     }
 
     public Stack<Integer> getRowStack() {
@@ -96,7 +101,6 @@ public class PlayerColumn {
         mNumOfRolls = 0;
         mRowStack.clear();
         setEnabled(false);
-        mComboBox.setModel(PlayerManager.getInstance().getComboBoxModel());
 
         for (ScoreCardRow scoreCardRow : mRows) {
             scoreCardRow.newGame();
@@ -151,6 +155,11 @@ public class PlayerColumn {
         this.mPlayOrder = playOrder;
     }
 
+    public void setPlayer(Player player) {
+        mPlayer = player;
+        mLabel.setText(mPlayer.getName());
+    }
+
     public void setText() {
         for (ScoreCardRow scoreCardRow : mRows) {
             scoreCardRow.setText();
@@ -180,10 +189,11 @@ public class PlayerColumn {
     private void init() {
         GameRows rowsRule = mGameType.getGameRows();
         mRows = new ScoreCardRow[rowsRule.size()];
-        Dimension d = mComboBox.getPreferredSize();
+        Dimension d = mLabel.getPreferredSize();
         d.width = 90;
-        mComboBox.setPreferredSize(d);
-        mComboBox.setEditable(true);
+        mLabel.setPreferredSize(d);
+        mLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        mLabel.setOpaque(true);
 
         for (int i = 0; i < mRows.length; i++) {
             GameRow rowRule = rowsRule.get(i);

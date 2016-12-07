@@ -26,13 +26,10 @@ import java.util.LinkedList;
 import java.util.prefs.PreferenceChangeEvent;
 import java.util.prefs.PreferenceChangeListener;
 import javax.swing.AbstractAction;
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.border.BevelBorder;
-import javax.swing.border.CompoundBorder;
-import javax.swing.border.EmptyBorder;
-import javax.swing.border.SoftBevelBorder;
 import org.nbgames.yaya.Options;
 import org.nbgames.yaya.gamedef.GameDef;
 import org.nbgames.yaya.gamedef.GameType;
@@ -43,7 +40,7 @@ import se.trixon.almond.util.GraphicsHelper;
 
 /**
  *
- * @author Patrik Karlsson <patrik@trixon.se>
+ * @author Patrik Karlsson
  */
 public class ScoreCard {
 
@@ -107,8 +104,12 @@ public class ScoreCard {
         mNumOfRolls = 0;
         mCurrentPlayer = new CircularInt(0, mNumOfPlayers - 1);
 
+        int i = 0;
+
         for (PlayerColumn playerColumn : mPlayers) {
             playerColumn.newGame();
+            playerColumn.setPlayer(mOptions.getPlayers()[i]);
+            i++;
         }
 
         mPlayers.get(mActivePlayer).setEnabled(true);
@@ -140,49 +141,13 @@ public class ScoreCard {
         mPlayers.get(mActivePlayer).setVisibleIndicators(visible);
     }
 
-    protected void actionPerformedUndo() {
+    private void actionPerformedUndo() {
         mRegisterable = true;
         mPlayers.get(mActivePlayer).setEnabled(false);
         mActivePlayer = mCurrentPlayer.dec();
         mPlayers.get(mActivePlayer).undo();
 
         mObservable.notify(ScoreCardEvent.UNDO);
-    }
-
-    protected void hoverRowEntered(int row) {
-        Color activeColor = GraphicsHelper.colorAndMask(mOptions.getColor(Options.ColorItem.HEADER), 0xEEEEEE);
-
-        mHeaderColumn.getRows()[row].getLabel().setBackground(activeColor);
-        mHeaderColumn.getHiScoreColumn()[row].getLabel().setBackground(activeColor);
-        mHeaderColumn.getMaxColumn()[row].getLabel().setBackground(activeColor);
-    }
-
-    protected void hoverRowExited(int row) {
-        mHeaderColumn.getRows()[row].getLabel().setBackground(mOptions.getColor(Options.ColorItem.HEADER));
-        mHeaderColumn.getHiScoreColumn()[row].getLabel().setBackground(mOptions.getColor(Options.ColorItem.HEADER));
-        mHeaderColumn.getMaxColumn()[row].getLabel().setBackground(mOptions.getColor(Options.ColorItem.HEADER));
-    }
-
-    protected void register() {
-        if (mRegisterable) {
-            mRegisterable = false;
-            mNumOfRolls = 0;
-            mPlayers.get(mActivePlayer).register();
-
-            updatePolePosition();
-
-            if (isGameOver()) {
-                mObservable.notify(ScoreCardEvent.GAME_OVER);
-                gameOver();
-
-            } else {
-                mUndoAction.setEnabled(true);
-                mObservable.notify(ScoreCardEvent.REGISTER);
-
-                mActivePlayer = mCurrentPlayer.inc();
-                mPlayers.get(mActivePlayer).setEnabled(true);
-            }
-        }
     }
 
     private void applyColors() {
@@ -305,15 +270,7 @@ public class ScoreCard {
     }
 
     private void initLayout() {
-        EmptyBorder basePanelBorder = new EmptyBorder(10, 10, 10, 10);
-        EmptyBorder emptyBorder = new EmptyBorder(8, 8, 8, 8);
-        SoftBevelBorder bevelBorder = new SoftBevelBorder(BevelBorder.RAISED);
-        SoftBevelBorder loweredBevelBorder = new SoftBevelBorder(BevelBorder.LOWERED);
-        CompoundBorder compoundBorder = new CompoundBorder(bevelBorder, emptyBorder);
-
-        mPanel.setBorder(compoundBorder);
-        mPanel.setBorder(new CompoundBorder(compoundBorder, loweredBevelBorder));
-        mBasePanel.setBorder(basePanelBorder);
+        mBasePanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
         mBasePanel.add(mPanel);
 
         mBasePanel.setOpaque(true);
@@ -367,8 +324,8 @@ public class ScoreCard {
             gridBagConstraints.gridy = 0;
             gridBagConstraints.insets = insets;
 
-            gridBagLayout.setConstraints(mPlayers.get(i).getComboBox(), gridBagConstraints);
-            mPanel.add(mPlayers.get(i).getComboBox());
+            gridBagLayout.setConstraints(mPlayers.get(i).getLabel(), gridBagConstraints);
+            mPanel.add(mPlayers.get(i).getLabel());
             for (int j = 0; j < mNumOfRows; j++) {
                 gridBagConstraints.gridy = j + 1;
 
@@ -409,6 +366,42 @@ public class ScoreCard {
             JLabel label = playerColumn.getRows()[mGameType.getResultRow()].getLabel();
             label.setFont(font.deriveFont((16.0F - reducer)));
             reducer += 1.0;
+        }
+    }
+
+    void hoverRowEntered(int row) {
+        Color activeColor = GraphicsHelper.colorAndMask(mOptions.getColor(Options.ColorItem.HEADER), 0xEEEEEE);
+
+        mHeaderColumn.getRows()[row].getLabel().setBackground(activeColor);
+        mHeaderColumn.getHiScoreColumn()[row].getLabel().setBackground(activeColor);
+        mHeaderColumn.getMaxColumn()[row].getLabel().setBackground(activeColor);
+    }
+
+    void hoverRowExited(int row) {
+        mHeaderColumn.getRows()[row].getLabel().setBackground(mOptions.getColor(Options.ColorItem.HEADER));
+        mHeaderColumn.getHiScoreColumn()[row].getLabel().setBackground(mOptions.getColor(Options.ColorItem.HEADER));
+        mHeaderColumn.getMaxColumn()[row].getLabel().setBackground(mOptions.getColor(Options.ColorItem.HEADER));
+    }
+
+    void register() {
+        if (mRegisterable) {
+            mRegisterable = false;
+            mNumOfRolls = 0;
+            mPlayers.get(mActivePlayer).register();
+
+            updatePolePosition();
+
+            if (isGameOver()) {
+                mObservable.notify(ScoreCardEvent.GAME_OVER);
+                gameOver();
+
+            } else {
+                mUndoAction.setEnabled(true);
+                mObservable.notify(ScoreCardEvent.REGISTER);
+
+                mActivePlayer = mCurrentPlayer.inc();
+                mPlayers.get(mActivePlayer).setEnabled(true);
+            }
         }
     }
 }
