@@ -76,7 +76,6 @@ public class Yaya extends GameController implements DiceGameProvider {
     public GamePanel getPanel() {
         if (mGamePanel == null) {
             mGamePanel = new YayaPanel();
-            onRequestNewGameStart();
         }
 
         return mGamePanel;
