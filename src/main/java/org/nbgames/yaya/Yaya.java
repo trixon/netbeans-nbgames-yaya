@@ -51,7 +51,7 @@ public class Yaya extends GameController implements DiceGameProvider {
 
     @Override
     public String getHelp() {
-        return "yaya help";
+        return getHelp(Yaya.class);
     }
 
     @Override
