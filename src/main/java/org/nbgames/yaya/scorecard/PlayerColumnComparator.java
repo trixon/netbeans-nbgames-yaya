@@ -19,7 +19,7 @@ import java.util.Comparator;
 
 /**
  *
- * @author Patrik Karlsson <patrik@trixon.se>
+ * @author Patrik Karlsson
  */
 public class PlayerColumnComparator implements Comparator<PlayerColumn> {
 

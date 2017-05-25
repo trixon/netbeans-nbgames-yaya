@@ -29,7 +29,7 @@ import org.nbgames.yaya.scorecard.ScoreCardObservable.ScoreCardEvent;
 
 /**
  *
- * @author Patrik Karlsson <patrik@trixon.se>
+ * @author Patrik Karlsson
  */
 public class YayaPanel extends GamePanel implements Observer {
 

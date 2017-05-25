@@ -23,7 +23,7 @@ import se.trixon.almond.util.GraphicsHelper;
 
 /**
  *
- * @author Patrik Karlsson <patrik@trixon.se>
+ * @author Patrik Karlsson
  */
 final class OptionPanel extends OptionsPanel {
 

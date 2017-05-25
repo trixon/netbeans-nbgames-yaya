@@ -19,7 +19,7 @@ import javax.swing.table.AbstractTableModel;
 
 /**
  *
- * @author Patrik Karlsson <patrik@trixon.se>
+ * @author Patrik Karlsson
  */
 public class PlayerTableModel extends AbstractTableModel {
 

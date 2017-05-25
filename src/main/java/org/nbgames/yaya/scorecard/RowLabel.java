@@ -20,7 +20,7 @@ import javax.swing.JLabel;
 
 /**
  *
- * @author Patrik Karlsson <patrik@trixon.se>
+ * @author Patrik Karlsson
  */
 public class RowLabel extends JLabel {
 

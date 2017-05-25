@@ -20,7 +20,7 @@ import se.trixon.almond.nbp.util.AUtil;
 
 /**
  *
- * @author Patrik Karlsson <patrik@trixon.se>
+ * @author Patrik Karlsson
  */
 public class GameRow {
 

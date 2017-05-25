@@ -19,7 +19,7 @@ import java.util.Observable;
 
 /**
  *
- * @author Patrik Karlsson <patrik@trixon.se>
+ * @author Patrik Karlsson
  */
 public class ScoreCardObservable extends Observable {
 

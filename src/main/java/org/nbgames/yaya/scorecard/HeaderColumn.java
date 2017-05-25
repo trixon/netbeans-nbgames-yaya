@@ -25,7 +25,7 @@ import org.nbgames.yaya.gamedef.GameType;
 
 /**
  *
- * @author Patrik Karlsson <patrik@trixon.se>
+ * @author Patrik Karlsson
  */
 public class HeaderColumn {
 

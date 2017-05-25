@@ -17,7 +17,7 @@ package org.nbgames.yaya.gamedef;
 
 /**
  *
- * @author Patrik Karlsson <patrik@trixon.se>
+ * @author Patrik Karlsson
  */
 import java.util.LinkedList;
 

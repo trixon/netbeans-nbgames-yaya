@@ -23,7 +23,7 @@ import org.nbgames.yaya.gamedef.GameRow;
 
 /**
  *
- * @author Patrik Karlsson <patrik@trixon.se>
+ * @author Patrik Karlsson
  */
 public class FormulaParser {
 
