@@ -16,7 +16,7 @@
 package org.nbgames.yaya;
 
 import java.awt.Color;
-import org.nbgames.core.api.ui.OptionsPanel;
+import org.nbgames.core.api.ui.NbgOptionsPanel;
 import se.trixon.almond.nbp.dialogs.ColorChooserDialog;
 import se.trixon.almond.nbp.swing.ColorChooserButton;
 import se.trixon.almond.util.GraphicsHelper;
@@ -25,11 +25,11 @@ import se.trixon.almond.util.GraphicsHelper;
  *
  * @author Patrik Karlsson
  */
-final class OptionPanel extends OptionsPanel {
+final class OptionsPanel extends NbgOptionsPanel {
 
     private final Options mOptions = Options.getInstance();
 
-    public OptionPanel() {
+    public OptionsPanel() {
         initComponents();
     }
 
@@ -77,10 +77,10 @@ final class OptionPanel extends OptionsPanel {
         defaultColorsButton = new javax.swing.JButton();
         useSymbolsCheckBox = new javax.swing.JCheckBox();
 
-        colorPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(org.openide.util.NbBundle.getMessage(OptionPanel.class, "OptionPanel.colorPanel.border.title"))); // NOI18N
+        colorPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(org.openide.util.NbBundle.getMessage(OptionsPanel.class, "OptionsPanel.colorPanel.border.title"))); // NOI18N
         colorPanel.setLayout(new java.awt.GridLayout(2, 4));
 
-        org.openide.awt.Mnemonics.setLocalizedText(backgroundColorChooserButton, org.openide.util.NbBundle.getMessage(OptionPanel.class, "OptionPanel.backgroundColorChooserButton.text")); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(backgroundColorChooserButton, org.openide.util.NbBundle.getMessage(OptionsPanel.class, "OptionsPanel.backgroundColorChooserButton.text")); // NOI18N
         backgroundColorChooserButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 colorChooserButtonActionPerformed(evt);
@@ -88,7 +88,7 @@ final class OptionPanel extends OptionsPanel {
         });
         colorPanel.add(backgroundColorChooserButton);
 
-        org.openide.awt.Mnemonics.setLocalizedText(scorecardColorChooserButton, org.openide.util.NbBundle.getMessage(OptionPanel.class, "OptionPanel.scorecardColorChooserButton.text")); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(scorecardColorChooserButton, org.openide.util.NbBundle.getMessage(OptionsPanel.class, "OptionsPanel.scorecardColorChooserButton.text")); // NOI18N
         scorecardColorChooserButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 colorChooserButtonActionPerformed(evt);
@@ -96,7 +96,7 @@ final class OptionPanel extends OptionsPanel {
         });
         colorPanel.add(scorecardColorChooserButton);
 
-        org.openide.awt.Mnemonics.setLocalizedText(headerColorChooserButton, org.openide.util.NbBundle.getMessage(OptionPanel.class, "OptionPanel.headerColorChooserButton.text")); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(headerColorChooserButton, org.openide.util.NbBundle.getMessage(OptionsPanel.class, "OptionsPanel.headerColorChooserButton.text")); // NOI18N
         headerColorChooserButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 colorChooserButtonActionPerformed(evt);
@@ -104,7 +104,7 @@ final class OptionPanel extends OptionsPanel {
         });
         colorPanel.add(headerColorChooserButton);
 
-        org.openide.awt.Mnemonics.setLocalizedText(sumColorChooserButton, org.openide.util.NbBundle.getMessage(OptionPanel.class, "OptionPanel.sumColorChooserButton.text")); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(sumColorChooserButton, org.openide.util.NbBundle.getMessage(OptionsPanel.class, "OptionsPanel.sumColorChooserButton.text")); // NOI18N
         sumColorChooserButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 colorChooserButtonActionPerformed(evt);
@@ -112,7 +112,7 @@ final class OptionPanel extends OptionsPanel {
         });
         colorPanel.add(sumColorChooserButton);
 
-        org.openide.awt.Mnemonics.setLocalizedText(rowColorChooserButton, org.openide.util.NbBundle.getMessage(OptionPanel.class, "OptionPanel.rowColorChooserButton.text")); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(rowColorChooserButton, org.openide.util.NbBundle.getMessage(OptionsPanel.class, "OptionsPanel.rowColorChooserButton.text")); // NOI18N
         rowColorChooserButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 colorChooserButtonActionPerformed(evt);
@@ -120,7 +120,7 @@ final class OptionPanel extends OptionsPanel {
         });
         colorPanel.add(rowColorChooserButton);
 
-        org.openide.awt.Mnemonics.setLocalizedText(indicatorHighColorChooserButton, org.openide.util.NbBundle.getMessage(OptionPanel.class, "OptionPanel.indicatorHighColorChooserButton.text")); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(indicatorHighColorChooserButton, org.openide.util.NbBundle.getMessage(OptionsPanel.class, "OptionsPanel.indicatorHighColorChooserButton.text")); // NOI18N
         indicatorHighColorChooserButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 colorChooserButtonActionPerformed(evt);
@@ -128,7 +128,7 @@ final class OptionPanel extends OptionsPanel {
         });
         colorPanel.add(indicatorHighColorChooserButton);
 
-        org.openide.awt.Mnemonics.setLocalizedText(indicatorLowColorChooserButton, org.openide.util.NbBundle.getMessage(OptionPanel.class, "OptionPanel.indicatorLowColorChooserButton.text")); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(indicatorLowColorChooserButton, org.openide.util.NbBundle.getMessage(OptionsPanel.class, "OptionsPanel.indicatorLowColorChooserButton.text")); // NOI18N
         indicatorLowColorChooserButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 colorChooserButtonActionPerformed(evt);
@@ -136,7 +136,7 @@ final class OptionPanel extends OptionsPanel {
         });
         colorPanel.add(indicatorLowColorChooserButton);
 
-        org.openide.awt.Mnemonics.setLocalizedText(defaultColorsButton, org.openide.util.NbBundle.getMessage(OptionPanel.class, "OptionPanel.defaultColorsButton.text")); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(defaultColorsButton, org.openide.util.NbBundle.getMessage(OptionsPanel.class, "OptionsPanel.defaultColorsButton.text")); // NOI18N
         defaultColorsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 defaultColorsButtonActionPerformed(evt);
@@ -144,7 +144,7 @@ final class OptionPanel extends OptionsPanel {
         });
         colorPanel.add(defaultColorsButton);
 
-        org.openide.awt.Mnemonics.setLocalizedText(useSymbolsCheckBox, org.openide.util.NbBundle.getMessage(OptionPanel.class, "OptionPanel.useSymbolsCheckBox.text")); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(useSymbolsCheckBox, org.openide.util.NbBundle.getMessage(OptionsPanel.class, "OptionsPanel.useSymbolsCheckBox.text")); // NOI18N
         useSymbolsCheckBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 useSymbolsCheckBoxActionPerformed(evt);

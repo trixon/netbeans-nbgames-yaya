@@ -47,7 +47,7 @@
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
             <TitledBorder title="Colors">
-              <ResourceString PropertyName="titleX" bundle="org/nbgames/yaya/Bundle.properties" key="OptionPanel.colorPanel.border.title" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+              <ResourceString PropertyName="titleX" bundle="org/nbgames/yaya/Bundle.properties" key="OptionsPanel.colorPanel.border.title" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
             </TitledBorder>
           </Border>
         </Property>
@@ -61,7 +61,7 @@
         <Component class="se.trixon.almond.nbp.swing.ColorChooserButton" name="backgroundColorChooserButton">
           <Properties>
             <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-              <ResourceString bundle="org/nbgames/yaya/Bundle.properties" key="OptionPanel.backgroundColorChooserButton.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+              <ResourceString bundle="org/nbgames/yaya/Bundle.properties" key="OptionsPanel.backgroundColorChooserButton.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
             </Property>
           </Properties>
           <Events>
@@ -71,7 +71,7 @@
         <Component class="se.trixon.almond.nbp.swing.ColorChooserButton" name="scorecardColorChooserButton">
           <Properties>
             <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-              <ResourceString bundle="org/nbgames/yaya/Bundle.properties" key="OptionPanel.scorecardColorChooserButton.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+              <ResourceString bundle="org/nbgames/yaya/Bundle.properties" key="OptionsPanel.scorecardColorChooserButton.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
             </Property>
           </Properties>
           <Events>
@@ -81,7 +81,7 @@
         <Component class="se.trixon.almond.nbp.swing.ColorChooserButton" name="headerColorChooserButton">
           <Properties>
             <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-              <ResourceString bundle="org/nbgames/yaya/Bundle.properties" key="OptionPanel.headerColorChooserButton.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+              <ResourceString bundle="org/nbgames/yaya/Bundle.properties" key="OptionsPanel.headerColorChooserButton.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
             </Property>
           </Properties>
           <Events>
@@ -91,7 +91,7 @@
         <Component class="se.trixon.almond.nbp.swing.ColorChooserButton" name="sumColorChooserButton">
           <Properties>
             <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-              <ResourceString bundle="org/nbgames/yaya/Bundle.properties" key="OptionPanel.sumColorChooserButton.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+              <ResourceString bundle="org/nbgames/yaya/Bundle.properties" key="OptionsPanel.sumColorChooserButton.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
             </Property>
           </Properties>
           <Events>
@@ -101,7 +101,7 @@
         <Component class="se.trixon.almond.nbp.swing.ColorChooserButton" name="rowColorChooserButton">
           <Properties>
             <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-              <ResourceString bundle="org/nbgames/yaya/Bundle.properties" key="OptionPanel.rowColorChooserButton.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+              <ResourceString bundle="org/nbgames/yaya/Bundle.properties" key="OptionsPanel.rowColorChooserButton.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
             </Property>
           </Properties>
           <Events>
@@ -111,7 +111,7 @@
         <Component class="se.trixon.almond.nbp.swing.ColorChooserButton" name="indicatorHighColorChooserButton">
           <Properties>
             <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-              <ResourceString bundle="org/nbgames/yaya/Bundle.properties" key="OptionPanel.indicatorHighColorChooserButton.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+              <ResourceString bundle="org/nbgames/yaya/Bundle.properties" key="OptionsPanel.indicatorHighColorChooserButton.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
             </Property>
           </Properties>
           <Events>
@@ -121,7 +121,7 @@
         <Component class="se.trixon.almond.nbp.swing.ColorChooserButton" name="indicatorLowColorChooserButton">
           <Properties>
             <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-              <ResourceString bundle="org/nbgames/yaya/Bundle.properties" key="OptionPanel.indicatorLowColorChooserButton.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+              <ResourceString bundle="org/nbgames/yaya/Bundle.properties" key="OptionsPanel.indicatorLowColorChooserButton.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
             </Property>
           </Properties>
           <Events>
@@ -131,7 +131,7 @@
         <Component class="javax.swing.JButton" name="defaultColorsButton">
           <Properties>
             <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-              <ResourceString bundle="org/nbgames/yaya/Bundle.properties" key="OptionPanel.defaultColorsButton.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+              <ResourceString bundle="org/nbgames/yaya/Bundle.properties" key="OptionsPanel.defaultColorsButton.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
             </Property>
           </Properties>
           <Events>
@@ -143,7 +143,7 @@
     <Component class="javax.swing.JCheckBox" name="useSymbolsCheckBox">
       <Properties>
         <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-          <ResourceString bundle="org/nbgames/yaya/Bundle.properties" key="OptionPanel.useSymbolsCheckBox.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+          <ResourceString bundle="org/nbgames/yaya/Bundle.properties" key="OptionsPanel.useSymbolsCheckBox.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
         </Property>
       </Properties>
       <Events>
