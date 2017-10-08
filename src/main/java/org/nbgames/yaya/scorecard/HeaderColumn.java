@@ -76,10 +76,10 @@ public class HeaderColumn {
 
             @Override
             public void preferenceChange(PreferenceChangeEvent evt) {
-                if (evt.getKey().equals(Options.KEY_USE_SYMBOLS)) {
+                if (evt.getKey().equals(Options.KEY_SHOW_SYMBOLS)) {
                     initLabelTexts();
-                } else if (evt.getKey().equalsIgnoreCase(Options.KEY_SHOW_HI_SCORE_COLUMN)) {
-                    setVisibleColumnHiscore(mOptions.isShowingHiScoreColumn());
+                } else if (evt.getKey().equalsIgnoreCase(Options.KEY_SHOW_TOP_COLUMN)) {
+                    setVisibleColumnHiscore(mOptions.isShowingTopColumn());
                 } else if (evt.getKey().equalsIgnoreCase(Options.KEY_SHOW_MAX_COLUMN)) {
                     setVisibleColumnMax(mOptions.isShowingMaxColumn());
                 }
@@ -91,7 +91,7 @@ public class HeaderColumn {
         for (int i = 0; i < mGameType.getGameRows().size(); i++) {
             String text;
 
-            if (mOptions.isUsingSymbols() && !mGameType.getGameRows().get(i).getTitleSymbol().equalsIgnoreCase("")) {
+            if (mOptions.isShowingSymbols() && !mGameType.getGameRows().get(i).getTitleSymbol().equalsIgnoreCase("")) {
                 text = mGameType.getGameRows().get(i).getTitleSymbol();
             } else {
                 text = mGameType.getGameRows().get(i).getTitle();
@@ -103,7 +103,7 @@ public class HeaderColumn {
 
     private void initRows() {
         boolean showMaxColumn = mOptions.isShowingMaxColumn();
-        boolean showHiScoreColumn = mOptions.isShowingHiScoreColumn();
+        boolean showHiScoreColumn = mOptions.isShowingTopColumn();
 
         GameRows rowsRule = mGameType.getGameRows();
         mLimValues = rowsRule.getLim();

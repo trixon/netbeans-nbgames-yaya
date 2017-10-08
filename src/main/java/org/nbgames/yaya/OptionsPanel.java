@@ -16,9 +16,13 @@
 package org.nbgames.yaya;
 
 import java.awt.Color;
-import org.nbgames.core.api.ui.NbgOptionsPanel;
+import java.awt.GridBagConstraints;
+import javax.swing.JPanel;
+import org.nbgames.core.api.options.NbgOptionsPanel;
+import org.nbgames.core.api.options.RowStylePanel;
 import se.trixon.almond.nbp.dialogs.ColorChooserDialog;
 import se.trixon.almond.nbp.swing.ColorChooserButton;
+import se.trixon.almond.util.Dict;
 import se.trixon.almond.util.GraphicsHelper;
 
 /**
@@ -31,6 +35,7 @@ final class OptionsPanel extends NbgOptionsPanel {
 
     public OptionsPanel() {
         initComponents();
+        init();
     }
 
     /**
@@ -39,7 +44,12 @@ final class OptionsPanel extends NbgOptionsPanel {
      */
     @Override
     public void load() {
-        useSymbolsCheckBox.setSelected(mOptions.isUsingSymbols());
+        showIndicatorsCheckBox.setSelected(mOptions.isShowingIndicators());
+        showMaxCheckBox.setSelected(mOptions.isShowingMaxColumn());
+        showSymbolsCheckBox.setSelected(mOptions.isShowingSymbols());
+        showTopCheckBox.setSelected(mOptions.isShowingTopColumn());
+        opacitySlider.setValue(mOptions.getOpacity());
+
         backgroundColorChooserButton.setColor(mOptions.getColor(Options.ColorItem.BACKGROUND));
         scorecardColorChooserButton.setColor(mOptions.getColor(Options.ColorItem.SCORECARD));
         headerColorChooserButton.setColor(mOptions.getColor(Options.ColorItem.HEADER));
@@ -53,7 +63,12 @@ final class OptionsPanel extends NbgOptionsPanel {
 
     @Override
     public void save() {
-        mOptions.setUseSymbols(useSymbolsCheckBox.isSelected());
+        mOptions.setShowIndicators(showIndicatorsCheckBox.isSelected());
+        mOptions.setShowMaxColumn(showMaxCheckBox.isSelected());
+        mOptions.setShowSymbols(showSymbolsCheckBox.isSelected());
+        mOptions.setShowTopColumn(showTopCheckBox.isSelected());
+        mOptions.setOpacity(opacitySlider.getValue());
+
         mOptions.setColor(Options.ColorItem.BACKGROUND, backgroundColorChooserButton.getColor());
         mOptions.setColor(Options.ColorItem.SCORECARD, scorecardColorChooserButton.getColor());
         mOptions.setColor(Options.ColorItem.HEADER, headerColorChooserButton.getColor());
@@ -63,9 +78,56 @@ final class OptionsPanel extends NbgOptionsPanel {
         mOptions.setColor(Options.ColorItem.INDICATOR_LO, indicatorLowColorChooserButton.getColor());
     }
 
+    private void init() {
+        RowStylePanel rs1 = new RowStylePanel("Namnrad");
+        RowStylePanel rs2 = new RowStylePanel("Rubrikkolumn");
+        RowStylePanel rs3 = new RowStylePanel("Poäng");
+        RowStylePanel rs4 = new RowStylePanel("Poäng, inaktiv");
+        RowStylePanel rs5 = new RowStylePanel("Summa");
+        RowStylePanel rs6 = new RowStylePanel("Indikator, bra");
+        RowStylePanel rs7 = new RowStylePanel("Indikator, dålig");
+//        scrollPanel.add(new RowStylePanel(new RowStyle()));
+//        scrollPanel.add(new JButton("swss"));
+//        scrollPanel.add(new RowStylePanel(new RowStyle()));
+//        scrollPanel.add(new JButton("swss"));
+//        scrollPanel.add(new RowStylePanel(new RowStyle()));
+//        scrollPanel.add(new RowStylePanel(new RowStyle()));
+//        scrollPanel.add(new JButton("swss"));
+//        scrollPanel.add(new RowStylePanel(new RowStyle()));
+//        scrollPanel.add(filler1);
+
+        GridBagConstraints gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.gridx = 0;
+        scrollPanel.add(rs1, gridBagConstraints);
+        gridBagConstraints.gridx = 0;
+        scrollPanel.add(rs2, gridBagConstraints);
+        gridBagConstraints.gridx = 0;
+        scrollPanel.add(rs3, gridBagConstraints);
+        gridBagConstraints.gridx = 0;
+        scrollPanel.add(rs4, gridBagConstraints);
+        gridBagConstraints.gridx = 0;
+        scrollPanel.add(rs5, gridBagConstraints);
+        gridBagConstraints.gridx = 0;
+        scrollPanel.add(rs6, gridBagConstraints);
+        gridBagConstraints.gridx = 0;
+        scrollPanel.add(rs7, gridBagConstraints);
+//        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        scrollPanel.add(new JPanel(), gridBagConstraints);
+
+    }
+
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
+        bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
+        backgroundButtonGroup = new javax.swing.ButtonGroup();
+        filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 32767));
         colorPanel = new javax.swing.JPanel();
         backgroundColorChooserButton = new se.trixon.almond.nbp.swing.ColorChooserButton();
         scorecardColorChooserButton = new se.trixon.almond.nbp.swing.ColorChooserButton();
@@ -75,7 +137,19 @@ final class OptionsPanel extends NbgOptionsPanel {
         indicatorHighColorChooserButton = new se.trixon.almond.nbp.swing.ColorChooserButton();
         indicatorLowColorChooserButton = new se.trixon.almond.nbp.swing.ColorChooserButton();
         defaultColorsButton = new javax.swing.JButton();
-        useSymbolsCheckBox = new javax.swing.JCheckBox();
+        backgroundLabel = new javax.swing.JLabel();
+        colorRadioButton = new javax.swing.JRadioButton();
+        imageRadioButton = new javax.swing.JRadioButton();
+        colorComboBox = new org.openide.awt.ColorComboBox();
+        showPanel = new javax.swing.JPanel();
+        showIndicatorsCheckBox = new javax.swing.JCheckBox();
+        showSymbolsCheckBox = new javax.swing.JCheckBox();
+        showMaxCheckBox = new javax.swing.JCheckBox();
+        showTopCheckBox = new javax.swing.JCheckBox();
+        opacityLabel = new javax.swing.JLabel();
+        opacitySlider = new javax.swing.JSlider();
+        scrollPane = new javax.swing.JScrollPane();
+        scrollPanel = new javax.swing.JPanel();
 
         colorPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(org.openide.util.NbBundle.getMessage(OptionsPanel.class, "OptionsPanel.colorPanel.border.title"))); // NOI18N
         colorPanel.setLayout(new java.awt.GridLayout(2, 4));
@@ -144,23 +218,61 @@ final class OptionsPanel extends NbgOptionsPanel {
         });
         colorPanel.add(defaultColorsButton);
 
-        org.openide.awt.Mnemonics.setLocalizedText(useSymbolsCheckBox, org.openide.util.NbBundle.getMessage(OptionsPanel.class, "OptionsPanel.useSymbolsCheckBox.text")); // NOI18N
-        useSymbolsCheckBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                useSymbolsCheckBoxActionPerformed(evt);
-            }
-        });
+        org.openide.awt.Mnemonics.setLocalizedText(backgroundLabel, Dict.BACKGROUND.toString());
+
+        backgroundButtonGroup.add(colorRadioButton);
+        org.openide.awt.Mnemonics.setLocalizedText(colorRadioButton, Dict.COLOR.toString());
+
+        backgroundButtonGroup.add(imageRadioButton);
+        imageRadioButton.setSelected(true);
+        org.openide.awt.Mnemonics.setLocalizedText(imageRadioButton, Dict.IMAGE.toString());
+
+        org.jdesktop.beansbinding.Binding binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, colorRadioButton, org.jdesktop.beansbinding.ELProperty.create("${selected}"), colorComboBox, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
+        bindingGroup.addBinding(binding);
+
+        showPanel.setLayout(new java.awt.GridLayout(2, 2, 8, 4));
+
+        org.openide.awt.Mnemonics.setLocalizedText(showIndicatorsCheckBox, org.openide.util.NbBundle.getMessage(OptionsPanel.class, "OptionsPanel.showIndicatorsCheckBox.text")); // NOI18N
+        showPanel.add(showIndicatorsCheckBox);
+
+        org.openide.awt.Mnemonics.setLocalizedText(showSymbolsCheckBox, org.openide.util.NbBundle.getMessage(OptionsPanel.class, "OptionsPanel.showSymbolsCheckBox.text")); // NOI18N
+        showPanel.add(showSymbolsCheckBox);
+
+        org.openide.awt.Mnemonics.setLocalizedText(showMaxCheckBox, org.openide.util.NbBundle.getMessage(OptionsPanel.class, "OptionsPanel.showMaxCheckBox.text")); // NOI18N
+        showPanel.add(showMaxCheckBox);
+
+        org.openide.awt.Mnemonics.setLocalizedText(showTopCheckBox, org.openide.util.NbBundle.getMessage(OptionsPanel.class, "OptionsPanel.showTopCheckBox.text")); // NOI18N
+        showPanel.add(showTopCheckBox);
+
+        org.openide.awt.Mnemonics.setLocalizedText(opacityLabel, Dict.OPACITY.toString());
+
+        opacitySlider.setMaximum(255);
+        opacitySlider.setValue(128);
+
+        scrollPanel.setLayout(new java.awt.GridBagLayout());
+        scrollPane.setViewportView(scrollPanel);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(colorPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 760, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(useSymbolsCheckBox)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(scrollPane)
+                    .addComponent(colorPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(backgroundLabel)
+                            .addComponent(opacityLabel)
+                            .addComponent(opacitySlider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(showPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(imageRadioButton)
+                                .addGap(18, 18, 18)
+                                .addComponent(colorRadioButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(colorComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -168,11 +280,26 @@ final class OptionsPanel extends NbgOptionsPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(useSymbolsCheckBox)
+                .addComponent(showPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(backgroundLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(imageRadioButton)
+                    .addComponent(colorRadioButton)
+                    .addComponent(colorComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(opacityLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(opacitySlider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(scrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 258, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(colorPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
+
+        bindingGroup.bind();
     }// </editor-fold>//GEN-END:initComponents
 
     private void colorChooserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_colorChooserButtonActionPerformed
@@ -192,9 +319,6 @@ final class OptionsPanel extends NbgOptionsPanel {
 
         updateDefaultButton();
     }//GEN-LAST:event_defaultColorsButtonActionPerformed
-
-    private void useSymbolsCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_useSymbolsCheckBoxActionPerformed
-    }//GEN-LAST:event_useSymbolsCheckBoxActionPerformed
 
     private void updateDefaultButton() {
         boolean hasChanged = colorHasChanged(backgroundColorChooserButton, Options.ColorItem.BACKGROUND)
@@ -216,15 +340,30 @@ final class OptionsPanel extends NbgOptionsPanel {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup backgroundButtonGroup;
     private se.trixon.almond.nbp.swing.ColorChooserButton backgroundColorChooserButton;
+    private javax.swing.JLabel backgroundLabel;
+    private org.openide.awt.ColorComboBox colorComboBox;
     private javax.swing.JPanel colorPanel;
+    private javax.swing.JRadioButton colorRadioButton;
     private javax.swing.JButton defaultColorsButton;
+    private javax.swing.Box.Filler filler1;
     private se.trixon.almond.nbp.swing.ColorChooserButton headerColorChooserButton;
+    private javax.swing.JRadioButton imageRadioButton;
     private se.trixon.almond.nbp.swing.ColorChooserButton indicatorHighColorChooserButton;
     private se.trixon.almond.nbp.swing.ColorChooserButton indicatorLowColorChooserButton;
+    private javax.swing.JLabel opacityLabel;
+    private javax.swing.JSlider opacitySlider;
     private se.trixon.almond.nbp.swing.ColorChooserButton rowColorChooserButton;
     private se.trixon.almond.nbp.swing.ColorChooserButton scorecardColorChooserButton;
+    private javax.swing.JScrollPane scrollPane;
+    private javax.swing.JPanel scrollPanel;
+    private javax.swing.JCheckBox showIndicatorsCheckBox;
+    private javax.swing.JCheckBox showMaxCheckBox;
+    private javax.swing.JPanel showPanel;
+    private javax.swing.JCheckBox showSymbolsCheckBox;
+    private javax.swing.JCheckBox showTopCheckBox;
     private se.trixon.almond.nbp.swing.ColorChooserButton sumColorChooserButton;
-    private javax.swing.JCheckBox useSymbolsCheckBox;
+    private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
 }

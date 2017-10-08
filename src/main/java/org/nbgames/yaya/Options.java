@@ -18,6 +18,7 @@ package org.nbgames.yaya;
 import java.awt.Color;
 import java.util.prefs.Preferences;
 import org.nbgames.core.api.Player;
+import org.nbgames.core.api.options.NbgOptions;
 import org.nbgames.yaya.gamedef.GameType;
 import org.openide.util.NbPreferences;
 import se.trixon.almond.util.GraphicsHelper;
@@ -26,14 +27,15 @@ import se.trixon.almond.util.GraphicsHelper;
  *
  * @author Patrik Karlsson
  */
-public class Options {
+public class Options extends NbgOptions {
 
     public static final String KEY_GAME_TYPE_ID = "gameType";
     public static final String KEY_NUM_OF_PLAYERS = "numOfPlayers";
-    public static final String KEY_SHOW_HI_SCORE_COLUMN = "showHiScoreColumn";
     public static final String KEY_SHOW_INDICATORS = "showIndicators";
     public static final String KEY_SHOW_MAX_COLUMN = "showMaxColumn";
-    public static final String KEY_USE_SYMBOLS = "useSymbols";
+    public static final String KEY_SHOW_SYMBOLS = "showSymbols";
+    public static final String KEY_SHOW_TOP_COLUMN = "showTopColumn";
+    public static final String KEY_OPACITY = "opacity";
     private static final String DEFAULT_COLOR_BACKGROUND = "#333333";
     private static final String DEFAULT_COLOR_HEADER = "#FFC800";
     private static final String DEFAULT_COLOR_INDICATOR_HI = "#BBEEBB";
@@ -44,23 +46,20 @@ public class Options {
     private static final String DEFAULT_GAME_TYPE_ID = "default";
     private static final String DEFAULT_GAME_VARIANT = "standard";
     private static final int DEFAULT_NUM_OF_PLAYERS = 2;
-    private static final boolean DEFAULT_SHOW_HI_SCORE_COLUMN = false;
+    private static final int DEFAULT_OPACITY = 255;
     private static final boolean DEFAULT_SHOW_INDICATORS = true;
     private static final boolean DEFAULT_SHOW_MAX_COLUMN = false;
+    private static final boolean DEFAULT_SHOW_TOP_COLUMN = false;
     private static final boolean DEFAULT_USE_SYMBOLS = false;
-    private static final Preferences mPreferences = NbPreferences.forModule(Options.class);
     private Player[] mPlayers;
-    private final Preferences mPreferencesColors = NbPreferences.forModule(getClass()).node("colors");
+    private Preferences mPreferencesColors = NbPreferences.forModule(getClass()).node("colors");
 
     public static Options getInstance() {
         return Holder.INSTANCE;
     }
 
-    public static Preferences getPreferences() {
-        return mPreferences;
-    }
-
     private Options() {
+        mPreferences = NbPreferences.forModule(getClass());
         init();
     }
 
@@ -80,6 +79,10 @@ public class Options {
         return mPreferences.getInt(KEY_NUM_OF_PLAYERS, DEFAULT_NUM_OF_PLAYERS);
     }
 
+    public int getOpacity() {
+        return mPreferences.getInt(KEY_OPACITY, DEFAULT_OPACITY);
+    }
+
     public Player[] getPlayers() {
         return mPlayers;
     }
@@ -88,8 +91,8 @@ public class Options {
         return mPreferencesColors;
     }
 
-    public boolean isShowingHiScoreColumn() {
-        return mPreferences.getBoolean(KEY_SHOW_HI_SCORE_COLUMN, DEFAULT_SHOW_HI_SCORE_COLUMN);
+    public boolean isShowingSymbols() {
+        return mPreferences.getBoolean(KEY_SHOW_SYMBOLS, DEFAULT_USE_SYMBOLS);
     }
 
     public boolean isShowingIndicators() {
@@ -100,8 +103,8 @@ public class Options {
         return mPreferences.getBoolean(KEY_SHOW_MAX_COLUMN, DEFAULT_SHOW_MAX_COLUMN);
     }
 
-    public boolean isUsingSymbols() {
-        return mPreferences.getBoolean(KEY_USE_SYMBOLS, DEFAULT_USE_SYMBOLS);
+    public boolean isShowingTopColumn() {
+        return mPreferences.getBoolean(KEY_SHOW_TOP_COLUMN, DEFAULT_SHOW_TOP_COLUMN);
     }
 
     public void setColor(ColorItem colorItem, Color color) {
@@ -120,12 +123,12 @@ public class Options {
         mPreferences.putInt(KEY_NUM_OF_PLAYERS, players);
     }
 
-    public void setPlayers(Player[] players) {
-        mPlayers = players;
+    public void setOpacity(int value) {
+        mPreferences.putInt(KEY_OPACITY, value);
     }
 
-    public void setShowHiScoreColumn(boolean state) {
-        mPreferences.putBoolean(KEY_SHOW_HI_SCORE_COLUMN, state);
+    public void setPlayers(Player[] players) {
+        mPlayers = players;
     }
 
     public void setShowIndicators(boolean state) {
@@ -136,8 +139,12 @@ public class Options {
         mPreferences.putBoolean(KEY_SHOW_MAX_COLUMN, state);
     }
 
-    public void setUseSymbols(boolean state) {
-        mPreferences.putBoolean(KEY_USE_SYMBOLS, state);
+    public void setShowSymbols(boolean state) {
+        mPreferences.putBoolean(KEY_SHOW_SYMBOLS, state);
+    }
+
+    public void setShowTopColumn(boolean state) {
+        mPreferences.putBoolean(KEY_SHOW_TOP_COLUMN, state);
     }
 
     private void init() {
