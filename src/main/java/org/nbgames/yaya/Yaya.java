@@ -15,13 +15,17 @@
  */
 package org.nbgames.yaya;
 
+import java.awt.image.BufferedImage;
 import org.nbgames.core.api.GameCategory;
 import org.nbgames.core.api.GameController;
+import org.nbgames.core.api.options.NbgOptionsPanel;
 import org.nbgames.core.api.ui.GamePanel;
 import org.nbgames.core.api.ui.NewGamePanel;
-import org.nbgames.core.api.options.NbgOptionsPanel;
 import org.openide.util.lookup.ServiceProvider;
 import org.openide.util.lookup.ServiceProviders;
+import se.trixon.almond.util.GraphicsHelper;
+import se.trixon.almond.util.icons.IconColor;
+import se.trixon.almond.util.icons.material.MaterialIcon;
 
 /**
  *
@@ -35,8 +39,8 @@ public class Yaya extends GameController {
     public static final String LOG_TITLE = "Yaya";
 
     private YayaPanel mGamePanel;
-    private OptionsPanel mOptionPanel;
     private YayaNewGamePanel mNewGamePanel;
+    private OptionsPanel mOptionPanel;
 
     public Yaya() {
     }
@@ -49,6 +53,11 @@ public class Yaya extends GameController {
     @Override
     public String getHelp() {
         return getHelp(Yaya.class);
+    }
+
+    @Override
+    public BufferedImage getImage() {
+        return GraphicsHelper.toBufferedImage(MaterialIcon._Social.CAKE.get(96, IconColor.getDefault()).getImage());
     }
 
     @Override
