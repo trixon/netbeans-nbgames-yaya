@@ -273,7 +273,7 @@ public class ScoreCard {
         mBasePanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
         mBasePanel.add(mPanel);
 
-        mBasePanel.setOpaque(true);
+        mBasePanel.setOpaque(false);
         mPanel.setOpaque(true);
 
         GridBagLayout gridBagLayout = new GridBagLayout();

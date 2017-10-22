@@ -47,6 +47,7 @@ public class YayaPanel extends GamePanel implements Observer {
         initComponents();
         GameDef.INSTANCE.init();
         initInitialLayout();
+        setBackgroundImage(NbGames.getImage("images/wood_panel1.jpg"));
     }
 
     public String getGameTitle() {
@@ -99,6 +100,8 @@ public class YayaPanel extends GamePanel implements Observer {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        setBackground(new java.awt.Color(204, 255, 153));
+        setOpaque(false);
         setLayout(new java.awt.BorderLayout());
     }// </editor-fold>//GEN-END:initComponents
 

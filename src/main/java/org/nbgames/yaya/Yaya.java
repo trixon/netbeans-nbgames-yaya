@@ -18,6 +18,7 @@ package org.nbgames.yaya;
 import java.awt.image.BufferedImage;
 import org.nbgames.core.api.GameCategory;
 import org.nbgames.core.api.GameController;
+import org.nbgames.core.api.NbGames;
 import org.nbgames.core.api.options.NbgOptionsPanel;
 import org.nbgames.core.api.ui.GamePanel;
 import org.nbgames.core.api.ui.NewGamePanel;
@@ -85,6 +86,11 @@ public class Yaya extends GameController {
         }
 
         return mGamePanel;
+    }
+
+    @Override
+    public BufferedImage getToolBarBackground() {
+        return NbGames.getImage("images/wood_panel1.jpg");
     }
 
     @Override
