@@ -37,7 +37,7 @@ public class PluginWatcher implements Runnable {
         loadYayaGames();
     }
 
-    private void loadYayaGames() {
+    private synchronized void loadYayaGames() {
         GameTypeLoader.getInstance().init();
     }
 }
