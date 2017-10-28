@@ -20,12 +20,9 @@
   },
   "rows": [
     {
-      "bonus": false,
-      "formula": "",
       "id": "rolls",
       "lim": 0,
       "max": 0,
-      "playable": false,
       "roll_counter": true,
       "sum": true,
       "title": "Throws",
@@ -35,14 +32,11 @@
       }
     },
     {
-      "bonus": false,
       "formula": "sum 1",
       "id": "ones",
       "lim": 2,
       "max": 5,
       "playable": true,
-      "roll_counter": false,
-      "sum": false,
       "title": "Ones",
       "title_symbol": "⚀",
       "i10n": {
@@ -50,14 +44,11 @@
       }
     },
     {
-      "bonus": false,
       "formula": "sum 2",
       "id": "twos",
       "lim": 4,
       "max": 10,
       "playable": true,
-      "roll_counter": false,
-      "sum": false,
       "title": "Twos",
       "title_symbol": "⚁",
       "i10n": {
@@ -65,14 +56,11 @@
       }
     },
     {
-      "bonus": false,
       "formula": "sum 3",
       "id": "threes",
       "lim": 6,
       "max": 15,
       "playable": true,
-      "roll_counter": false,
-      "sum": false,
       "title": "Threes",
       "title_symbol": "⚂",
       "i10n": {
@@ -80,14 +68,11 @@
       }
     },
     {
-      "bonus": false,
       "formula": "sum 4",
       "id": "fours",
       "lim": 8,
       "max": 20,
       "playable": true,
-      "roll_counter": false,
-      "sum": false,
       "title": "Fours",
       "title_symbol": "⚃",
       "i10n": {
@@ -95,14 +80,11 @@
       }
     },
     {
-      "bonus": false,
       "formula": "sum 5",
       "id": "fives",
       "lim": 10,
       "max": 25,
       "playable": true,
-      "roll_counter": false,
-      "sum": false,
       "title": "Fives",
       "title_symbol": "⚄",
       "i10n": {
@@ -110,14 +92,11 @@
       }
     },
     {
-      "bonus": false,
       "formula": "sum 6",
       "id": "sixes",
       "lim": 12,
       "max": 30,
       "playable": true,
-      "roll_counter": false,
-      "sum": false,
       "title": "Sixes",
       "title_symbol": "⚅",
       "i10n": {
@@ -125,14 +104,11 @@
       }
     },
     {
-      "bonus": false,
       "formula": "straight 6",
       "id": "fullStraight",
       "lim": 21,
       "max": 45,
       "playable": true,
-      "roll_counter": false,
-      "sum": false,
       "title": "Full Straight",
       "title_symbol": "⚀ ⚁ ⚂ ⚃ ⚄ ⚅",
       "i10n": {
@@ -140,13 +116,9 @@
       }
     },
     {
-      "bonus": false,
-      "formula": "",
       "id": "total",
       "lim": 0,
       "max": 171,
-      "playable": false,
-      "roll_counter": false,
       "sum": true,
       "title": "Total",
       "title_symbol": "∑",

@@ -28,7 +28,7 @@ import se.trixon.almond.nbp.util.AUtil;
 public class GameRow {
 
     @SerializedName("bonus")
-    private Boolean mBonus;
+    private boolean mBonus;
     @SerializedName("formula")
     private String mFormula;
     @SerializedName("i10n")
@@ -151,10 +151,6 @@ public class GameRow {
     }
 
     void postRestore() {
-        if (mBonus == null) {
-            mBonus = false;
-        }
-
         if (mFormula == null) {
             mFormula = "";
         }

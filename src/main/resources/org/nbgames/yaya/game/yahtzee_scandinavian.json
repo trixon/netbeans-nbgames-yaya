@@ -22,12 +22,9 @@
   },
   "rows": [
     {
-      "bonus": false,
-      "formula": "",
       "id": "rolls",
       "lim": 0,
       "max": 0,
-      "playable": false,
       "roll_counter": true,
       "sum": true,
       "title": "Throws",
@@ -37,14 +34,11 @@
       }
     },
     {
-      "bonus": false,
       "formula": "sum 1",
       "id": "ones",
       "lim": 3,
       "max": 5,
       "playable": true,
-      "roll_counter": false,
-      "sum": false,
       "title": "Ones",
       "title_symbol": "⚀",
       "i10n": {
@@ -52,14 +46,11 @@
       }
     },
     {
-      "bonus": false,
       "formula": "sum 2",
       "id": "twos",
       "lim": 6,
       "max": 10,
       "playable": true,
-      "roll_counter": false,
-      "sum": false,
       "title": "Twos",
       "title_symbol": "⚁",
       "i10n": {
@@ -67,14 +58,11 @@
       }
     },
     {
-      "bonus": false,
       "formula": "sum 3",
       "id": "threes",
       "lim": 9,
       "max": 15,
       "playable": true,
-      "roll_counter": false,
-      "sum": false,
       "title": "Threes",
       "title_symbol": "⚂",
       "i10n": {
@@ -82,14 +70,11 @@
       }
     },
     {
-      "bonus": false,
       "formula": "sum 4",
       "id": "fours",
       "lim": 12,
       "max": 20,
       "playable": true,
-      "roll_counter": false,
-      "sum": false,
       "title": "Fours",
       "title_symbol": "⚃",
       "i10n": {
@@ -97,14 +82,11 @@
       }
     },
     {
-      "bonus": false,
       "formula": "sum 5",
       "id": "fives",
       "lim": 15,
       "max": 25,
       "playable": true,
-      "roll_counter": false,
-      "sum": false,
       "title": "Fives",
       "title_symbol": "⚄",
       "i10n": {
@@ -112,14 +94,11 @@
       }
     },
     {
-      "bonus": false,
       "formula": "sum 6",
       "id": "sixes",
       "lim": 18,
       "max": 30,
       "playable": true,
-      "roll_counter": false,
-      "sum": false,
       "title": "Sixes",
       "title_symbol": "⚅",
       "i10n": {
@@ -127,13 +106,9 @@
       }
     },
     {
-      "bonus": false,
-      "formula": "",
       "id": "sum1",
       "lim": 0,
       "max": 105,
-      "playable": false,
-      "roll_counter": false,
       "sum": true,
       "title": "Sum 1",
       "title_symbol": "∑₁",
@@ -143,12 +118,9 @@
     },
     {
       "bonus": true,
-      "formula": "",
       "id": "bonus",
       "lim": 63,
       "max": 50,
-      "playable": false,
-      "roll_counter": false,
       "sum": true,
       "title": "Bonus",
       "title_symbol": "+",
@@ -157,14 +129,11 @@
       }
     },
     {
-      "bonus": false,
       "formula": "duplicates 2",
       "id": "onePair",
       "lim": 6,
       "max": 12,
       "playable": true,
-      "roll_counter": false,
-      "sum": false,
       "title": "One pair",
       "title_symbol": "◼ ◼",
       "i10n": {
@@ -172,14 +141,11 @@
       }
     },
     {
-      "bonus": false,
       "formula": "pair 2",
       "id": "twoPair",
       "lim": 12,
       "max": 22,
       "playable": true,
-      "roll_counter": false,
-      "sum": false,
       "title": "Two pair",
       "title_symbol": "◼ ◼ ◻ ◻",
       "i10n": {
@@ -187,14 +153,11 @@
       }
     },
     {
-      "bonus": false,
       "formula": "duplicates 3",
       "id": "threeOfAKind",
       "lim": 12,
       "max": 18,
       "playable": true,
-      "roll_counter": false,
-      "sum": false,
       "title": "Three of a kind",
       "title_symbol": "◼ ◼ ◼",
       "i10n": {
@@ -202,14 +165,11 @@
       }
     },
     {
-      "bonus": false,
       "formula": "duplicates 4",
       "id": "fourOfAKind",
       "lim": 16,
       "max": 24,
       "playable": true,
-      "roll_counter": false,
-      "sum": false,
       "title": "Four of a kind",
       "title_symbol": "◼ ◼ ◼ ◼",
       "i10n": {
@@ -217,14 +177,11 @@
       }
     },
     {
-      "bonus": false,
       "formula": "straight 5",
       "id": "smallStraight",
       "lim": 15,
       "max": 15,
       "playable": true,
-      "roll_counter": false,
-      "sum": false,
       "title": "Small Straight",
       "title_symbol": "⚀ ⚁ ⚂ ⚃ ⚄",
       "i10n": {
@@ -232,14 +189,11 @@
       }
     },
     {
-      "bonus": false,
       "formula": "straight 5",
       "id": "largeStraight",
       "lim": 20,
       "max": 20,
       "playable": true,
-      "roll_counter": false,
-      "sum": false,
       "title": "Large Straight",
       "title_symbol": "⚁ ⚂ ⚃ ⚄ ⚅",
       "i10n": {
@@ -247,14 +201,11 @@
       }
     },
     {
-      "bonus": false,
       "formula": "house 3 2",
       "id": "fullHouse",
       "lim": 16,
       "max": 28,
       "playable": true,
-      "roll_counter": false,
-      "sum": false,
       "title": "Full House",
       "title_symbol": "◼ ◼ ◼ ◻ ◻",
       "i10n": {
@@ -262,14 +213,11 @@
       }
     },
     {
-      "bonus": false,
       "formula": "sum",
       "id": "chance",
       "lim": 20,
       "max": 30,
       "playable": true,
-      "roll_counter": false,
-      "sum": false,
       "title": "Chance",
       "title_symbol": "� � � � �",
       "i10n": {
@@ -277,14 +225,11 @@
       }
     },
     {
-      "bonus": false,
       "formula": "duplicates 5",
       "id": "yahtzee",
       "lim": 50,
       "max": 50,
       "playable": true,
-      "roll_counter": false,
-      "sum": false,
       "title": "Yahtzee",
       "title_symbol": "◼ ◼ ◼ ◼ ◼",
       "i10n": {
@@ -292,13 +237,9 @@
       }
     },
     {
-      "bonus": false,
-      "formula": "",
       "id": "sum2",
       "lim": 0,
       "max": 219,
-      "playable": false,
-      "roll_counter": false,
       "sum": true,
       "title": "Sum 2",
       "title_symbol": "∑₂",
@@ -307,13 +248,9 @@
       }
     },
     {
-      "bonus": false,
-      "formula": "",
       "id": "total",
       "lim": 0,
       "max": 374,
-      "playable": false,
-      "roll_counter": false,
       "sum": true,
       "title": "Total",
       "title_symbol": "∑",
