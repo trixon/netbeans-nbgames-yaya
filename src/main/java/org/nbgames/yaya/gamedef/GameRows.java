@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright 2017 Patrik Karlsson.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -31,6 +31,7 @@ public class GameRows extends LinkedList<GameRow> {
             values[i] = gameRow.getLim();
             i++;
         }
+
         return values;
     }
 

@@ -15,11 +15,19 @@
  */
 package org.nbgames.yaya.gamedef;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonSyntaxException;
+import com.google.gson.annotations.SerializedName;
+import java.io.File;
+import java.io.IOException;
+import java.nio.charset.Charset;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
-import java.util.ResourceBundle;
-import org.nbgames.yaya.Yaya;
-import org.openide.util.NbBundle;
+import java.util.HashMap;
+import org.apache.commons.io.FileUtils;
+import org.nbgames.core.api.NbGames;
 
 /**
  *
@@ -27,54 +35,61 @@ import org.openide.util.NbBundle;
  */
 public class GameType {
 
-    public static Comparator<GameType> NameComparator = new Comparator<GameType>() {
-
-        @Override
-        public int compare(GameType type1, GameType type2) {
-
-            return type1.getTitle().compareTo(type2.getTitle());
-        }
-
-    };
-    public static final String VARIANT = "Variant.";
-    public static final String VARIANT_ASCENDING = "ascending";
-    public static final String VARIANT_DESCENDING = "descending";
-    public static final String VARIANT_LOWER_UPPER = "lower_upper";
-    public static final String VARIANT_RANDOM = "random";
-    public static final String VARIANT_STANDARD = "standard";
-    public static final String VARIANT_UPPER_LOWER = "upper_lower";
+    public static Comparator<GameType> NameComparator = (GameType type1, GameType type2) -> type1.getTitle().compareTo(type2.getTitle());
+    private static final int FILE_FORMAT_VERSION = 1;
+    private static final Gson GSON = new GsonBuilder()
+            .setVersion(1.0)
+            .serializeNulls()
+            .setPrettyPrinting()
+            .create();
+    @SerializedName("author")
     private String mAuthor;
-    private final ResourceBundle mBundle = NbBundle.getBundle(Yaya.class);
+    @SerializedName("default_variant")
     private int mDefaultVariant;
-    private GameRows mGameRows = new GameRows();
+    @SerializedName("format_version")
+    private int mFileFormatVersion;
+    @SerializedName("rows")
+    private GameRows mRows = new GameRows();
+    @SerializedName("id")
     private String mId;
-    private String[] mLocalizedVariants;
+    @SerializedName("dice")
     private int mNumOfDice;
+    @SerializedName("rolls")
     private int mNumOfRolls;
+    @SerializedName("result_row")
     private int mResultRow;
+    @SerializedName("title")
     private String mTitle;
-    private String[] mVariants;
+    @SerializedName("variants")
+    private ArrayList<GameVariant> mVariants;
+    @SerializedName("version_date")
     private String mVersionDate;
+    @SerializedName("version_name")
     private String mVersionName;
+    @SerializedName("i10n")
+    private final HashMap<String, String> mI10n = new HashMap<>();
 
-    public String dump() {
-        StringBuilder stringBuilder = new StringBuilder();
+    public static GameType restore(String json) throws JsonSyntaxException {
+        System.out.println(json);
+        GameType gameType = GSON.fromJson(json, GameType.class);
 
-        stringBuilder.append(getId()).append("\n");
-        stringBuilder.append(getTitle()).append("\n");
-        stringBuilder.append(getAuthor()).append("\n");
-        stringBuilder.append(getDefaultVariant()).append("\n");
-        stringBuilder.append(getVersionDate()).append("\n");
-        stringBuilder.append(getVersionName()).append("\n");
-        stringBuilder.append("resultRow ").append(getResultRow()).append("\n");
-        stringBuilder.append("numOfDice ").append(getNumOfDice()).append("\n");
-        stringBuilder.append("numOfRolls ").append(getNumOfRolls()).append("\n");
-
-        for (GameRow row : getGameRows()) {
-            stringBuilder.append(row.dump()).append("\n");
+        if (gameType.mFileFormatVersion != FILE_FORMAT_VERSION) {
+            //TODO Handle file format version change
         }
 
-        return stringBuilder.toString();
+        return gameType;
+    }
+
+    public GameType() {
+    }
+
+    public HashMap<String, String> getI10n() {
+        return mI10n;
+    }
+
+    @Override
+    public String toString() {
+        return GSON.toJson(this);
     }
 
     public String getAuthor() {
@@ -85,8 +100,12 @@ public class GameType {
         return mDefaultVariant;
     }
 
-    public GameRows getGameRows() {
-        return mGameRows;
+    public int getFileFormatVersion() {
+        return mFileFormatVersion;
+    }
+
+    public GameRows getRows() {
+        return mRows;
     }
 
     public String getId() {
@@ -95,9 +114,9 @@ public class GameType {
 
     public int getLocalizedIndexForVariantId(String id) {
         int index = -1;
-        String[] localizedVariants = mLocalizedVariants.clone();
+        String[] localizedVariants = getLocalizedVariants().clone();
         Arrays.sort(localizedVariants);
-        String localizedVariant = mBundle.getString(GameType.VARIANT + id);
+        String localizedVariant = GameVariant.valueOf(id.toUpperCase()).getLocalized();
 
         for (int i = 0; i < localizedVariants.length; i++) {
             if (localizedVariant.equalsIgnoreCase(localizedVariants[i])) {
@@ -110,7 +129,13 @@ public class GameType {
     }
 
     public String[] getLocalizedVariants() {
-        return mLocalizedVariants;
+        String[] localized = new String[mVariants.size()];
+
+        for (int i = 0; i < mVariants.size(); i++) {
+            localized[i] = mVariants.get(i).getLocalized();
+        }
+
+        return localized;
     }
 
     public int getNumOfDice() {
@@ -126,24 +151,24 @@ public class GameType {
     }
 
     public String getTitle() {
-        return mTitle;
+        return mI10n.getOrDefault("title" + NbGames.getLanguageSuffix(), mTitle);
     }
 
     public String getVariantByTitle(String title) {
         String result = "standard";
 
-        for (int i = 0; i < mLocalizedVariants.length; i++) {
-            if (mLocalizedVariants[i].equalsIgnoreCase(title)) {
-                result = mVariants[i];
-                break;
+        for (GameVariant variant : mVariants) {
+            if (variant.getLocalized().equalsIgnoreCase(title)) {
+                result = variant.name().toLowerCase();
             }
+
         }
 
         return result;
     }
 
     public String[] getVariants() {
-        return mVariants;
+        return mVariants.toArray(new String[0]);
     }
 
     public String getVersionDate() {
@@ -154,6 +179,11 @@ public class GameType {
         return mVersionName;
     }
 
+    public void save(File file) throws IOException {
+        mFileFormatVersion = FILE_FORMAT_VERSION;
+        FileUtils.writeStringToFile(file, toString(), Charset.defaultCharset());
+    }
+
     public void setAuthor(String author) {
         mAuthor = author;
     }
@@ -162,8 +192,8 @@ public class GameType {
         mDefaultVariant = defaultVariant;
     }
 
-    public void setGameRows(GameRows gameRows) {
-        mGameRows = gameRows;
+    public void setRows(GameRows rows) {
+        mRows = rows;
     }
 
     public void setId(String id) {
@@ -186,14 +216,8 @@ public class GameType {
         mTitle = title;
     }
 
-    public void setVariants(String variants) {
-        mVariants = variants.split(" ");
-        updateLocalizedVariants();
-    }
-
-    public void setVariants(String[] variants) {
+    public void setVariants(ArrayList<GameVariant> variants) {
         mVariants = variants;
-        updateLocalizedVariants();
     }
 
     public void setVersionDate(String versionDate) {
@@ -204,11 +228,9 @@ public class GameType {
         mVersionName = versionName;
     }
 
-    private void updateLocalizedVariants() {
-        mLocalizedVariants = new String[mVariants.length];
-
-        for (int i = 0; i < mVariants.length; i++) {
-            mLocalizedVariants[i] = mBundle.getString(GameType.VARIANT + mVariants[i]);
-        }
+    void postRestore() {
+        mRows.forEach((row) -> {
+            row.postRestore();
+        });
     }
 }

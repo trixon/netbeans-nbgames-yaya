@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright 2017 Patrik Karlsson.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,7 +15,10 @@
  */
 package org.nbgames.yaya.gamedef;
 
+import com.google.gson.annotations.SerializedName;
+import java.util.HashMap;
 import java.util.TreeSet;
+import org.nbgames.core.api.NbGames;
 import se.trixon.almond.nbp.util.AUtil;
 
 /**
@@ -24,42 +27,39 @@ import se.trixon.almond.nbp.util.AUtil;
  */
 public class GameRow {
 
-    private boolean mBonus;
+    @SerializedName("bonus")
+    private Boolean mBonus;
+    @SerializedName("formula")
     private String mFormula;
+    @SerializedName("i10n")
+    private final HashMap<String, String> mI10n = new HashMap<>();
+    @SerializedName("id")
     private String mId;
+    @SerializedName("lim")
     private int mLim = 0;
+    @SerializedName("max")
     private int mMax = 0;
+    @SerializedName("playable")
     private boolean mPlayable;
+    @SerializedName("roll_counter")
     private boolean mRollCounter;
+    @SerializedName("sum")
     private boolean mSum;
-    private TreeSet<Integer> mSumSet;
+    private transient TreeSet<Integer> mSumSet;
+    @SerializedName("title")
     private String mTitle;
+    @SerializedName("title_symbol")
     private String mTitleSymbol;
 
-    public String dump() {
-        StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("id=").append(getId()).append("\n");
-        stringBuilder.append("title=").append(getTitle()).append("\n");
-        stringBuilder.append("titleSymbol=").append(getTitleSymbol()).append("\n");
-        stringBuilder.append("formula=").append(getFormula()).append("\n");
-        stringBuilder.append("lim=").append(getLim()).append("\n");
-        stringBuilder.append("max=").append(getMax()).append("\n");
-        stringBuilder.append("isBonus=").append(isBonus()).append("\n");
-        stringBuilder.append("isPlayable=").append(isPlayable()).append("\n");
-        stringBuilder.append("isRollCounter=").append(isRollCounter()).append("\n");
-        stringBuilder.append("isSum=").append(isSum()).append("\n");
-
-        if (mSumSet != null) {
-            stringBuilder.append("sumSet=").append(mSumSet.toString()).append("\n");
-        } else {
-            stringBuilder.append("sumSet=null").append("\n");
-        }
-
-        return stringBuilder.toString();
+    public GameRow() {
     }
 
     public String getFormula() {
         return mFormula;
+    }
+
+    public HashMap<String, String> getI10n() {
+        return mI10n;
     }
 
     public String getId() {
@@ -79,7 +79,7 @@ public class GameRow {
     }
 
     public String getTitle() {
-        return mTitle;
+        return mI10n.getOrDefault("title" + NbGames.getLanguageSuffix(), mTitle);
     }
 
     public String getTitleSymbol() {
@@ -148,5 +148,15 @@ public class GameRow {
 
     public void setTitleSymbol(String titleSymbol) {
         mTitleSymbol = titleSymbol;
+    }
+
+    void postRestore() {
+        if (mBonus == null) {
+            mBonus = false;
+        }
+
+        if (mFormula == null) {
+            mFormula = "";
+        }
     }
 }

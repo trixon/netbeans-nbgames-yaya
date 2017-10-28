@@ -88,13 +88,13 @@ public class HeaderColumn {
     }
 
     private void initLabelTexts() {
-        for (int i = 0; i < mGameType.getGameRows().size(); i++) {
+        for (int i = 0; i < mGameType.getRows().size(); i++) {
             String text;
 
-            if (mOptions.isShowingSymbols() && !mGameType.getGameRows().get(i).getTitleSymbol().equalsIgnoreCase("")) {
-                text = mGameType.getGameRows().get(i).getTitleSymbol();
+            if (mOptions.isShowingSymbols() && !mGameType.getRows().get(i).getTitleSymbol().equalsIgnoreCase("")) {
+                text = mGameType.getRows().get(i).getTitleSymbol();
             } else {
-                text = mGameType.getGameRows().get(i).getTitle();
+                text = mGameType.getRows().get(i).getTitle();
             }
 
             mRows[i].getLabel().setText(text);
@@ -105,7 +105,7 @@ public class HeaderColumn {
         boolean showMaxColumn = mOptions.isShowingMaxColumn();
         boolean showHiScoreColumn = mOptions.isShowingTopColumn();
 
-        GameRows rowsRule = mGameType.getGameRows();
+        GameRows rowsRule = mGameType.getRows();
         mLimValues = rowsRule.getLim();
         mMaxValues = rowsRule.getMax();
 

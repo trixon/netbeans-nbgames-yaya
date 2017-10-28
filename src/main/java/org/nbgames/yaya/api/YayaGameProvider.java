@@ -17,7 +17,6 @@ package org.nbgames.yaya.api;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.StringWriter;
 import org.apache.commons.io.IOUtils;
 import org.openide.util.Exceptions;
 import se.trixon.almond.util.SystemHelper;
@@ -26,11 +25,11 @@ import se.trixon.almond.util.SystemHelper;
  *
  * @author Patrik Karlsson
  */
-public abstract class GameProvider {
+public abstract class YayaGameProvider {
 
     private final String mId;
 
-    public GameProvider(String id) {
+    public YayaGameProvider(String id) {
         mId = id;
     }
 
@@ -41,13 +40,12 @@ public abstract class GameProvider {
     public String getDefinition() {
         InputStream inputStream = getClass().getResourceAsStream("/" + SystemHelper.getPackageAsPath(getClass()) + mId);
 
-        StringWriter writer = new StringWriter();
         try {
-            IOUtils.copy(inputStream, writer, "utf-8");
+            return IOUtils.toString(inputStream, "UTF-8");
         } catch (IOException ex) {
             Exceptions.printStackTrace(ex);
         }
 
-        return writer.toString();
+        return "";
     }
 }

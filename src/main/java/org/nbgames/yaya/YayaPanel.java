@@ -22,7 +22,7 @@ import org.nbgames.core.api.NbGames;
 import org.nbgames.core.api.ui.GamePanel;
 import org.nbgames.core.dice.DiceBoard;
 import org.nbgames.core.dice.DiceBoard.RollEvent;
-import org.nbgames.yaya.gamedef.GameDef;
+import org.nbgames.yaya.gamedef.GameTypeLoader;
 import org.nbgames.yaya.gamedef.GameType;
 import org.nbgames.yaya.scorecard.ScoreCard;
 import org.nbgames.yaya.scorecard.ScoreCardObservable.ScoreCardEvent;
@@ -45,7 +45,7 @@ public class YayaPanel extends GamePanel implements Observer {
      */
     public YayaPanel() {
         initComponents();
-        GameDef.INSTANCE.init();
+        //GameDef.getInstance().init();
         initInitialLayout();
         setBackgroundImage(NbGames.getImage("images/wood_panel1.jpg"));
     }
@@ -128,7 +128,7 @@ public class YayaPanel extends GamePanel implements Observer {
 
     private void initGame() {
         removeAll();
-        mGameType = GameDef.INSTANCE.getType(mOptions.getGameTypeId());
+        mGameType = GameTypeLoader.getInstance().getType(mOptions.getGameTypeId());
         mNumOfPlayers = mOptions.getNumOfPlayers();
 
         mDiceBoard = new DiceBoard(mGameType.getNumOfDice());

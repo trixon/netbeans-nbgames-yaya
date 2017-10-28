@@ -15,15 +15,15 @@
  */
 package org.nbgames.yaya.game;
 
-import org.nbgames.yaya.api.GameProvider;
+import org.nbgames.yaya.api.YayaGameProvider;
 import org.openide.util.lookup.ServiceProvider;
 
 /**
  *
  * @author Patrik Karlsson
  */
-@ServiceProvider(service = GameProvider.class)
-public class Yacht extends GameProvider {
+@ServiceProvider(service = YayaGameProvider.class)
+public class Yacht extends YayaGameProvider {
 
     public Yacht() {
         super("yacht.json");

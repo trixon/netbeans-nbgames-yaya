@@ -19,7 +19,7 @@ import java.awt.Color;
 import java.util.prefs.Preferences;
 import org.nbgames.core.api.Player;
 import org.nbgames.core.api.options.NbgOptions;
-import org.nbgames.yaya.gamedef.GameType;
+import org.nbgames.yaya.gamedef.GameVariant;
 import org.openide.util.NbPreferences;
 import se.trixon.almond.util.GraphicsHelper;
 
@@ -72,7 +72,7 @@ public class Options extends NbgOptions {
     }
 
     public String getGameVariant(String type) {
-        return mPreferences.get(GameType.VARIANT + type, DEFAULT_GAME_VARIANT);
+        return mPreferences.get(GameVariant.PREFIX + type, DEFAULT_GAME_VARIANT);
     }
 
     public int getNumOfPlayers() {
@@ -116,7 +116,7 @@ public class Options extends NbgOptions {
     }
 
     public void setGameVariant(String type, String variant) {
-        mPreferences.put(GameType.VARIANT + type, variant);
+        mPreferences.put(GameVariant.PREFIX + type, variant);
     }
 
     public void setNumOfPlayers(int players) {

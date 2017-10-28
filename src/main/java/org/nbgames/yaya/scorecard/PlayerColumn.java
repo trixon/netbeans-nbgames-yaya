@@ -187,7 +187,7 @@ public class PlayerColumn {
     }
 
     private void init() {
-        GameRows rowsRule = mGameType.getGameRows();
+        GameRows rowsRule = mGameType.getRows();
         mRows = new ScoreCardRow[rowsRule.size()];
         Dimension d = mLabel.getPreferredSize();
         d.width = 90;

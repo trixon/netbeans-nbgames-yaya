@@ -13,19 +13,31 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.nbgames.yaya.game;
+package org.nbgames.yaya;
 
 import org.nbgames.yaya.api.YayaGameProvider;
-import org.openide.util.lookup.ServiceProvider;
+import org.nbgames.yaya.gamedef.GameTypeLoader;
+import org.openide.modules.OnStart;
+import org.openide.util.Lookup;
+import org.openide.util.LookupEvent;
 
 /**
  *
  * @author Patrik Karlsson
  */
-@ServiceProvider(service = YayaGameProvider.class)
-public class YahtzeeScandinavian extends YayaGameProvider {
+@OnStart
+public class PluginWatcher implements Runnable {
 
-    public YahtzeeScandinavian() {
-        super("yahtzee_scandinavian.json");
+    @Override
+    public void run() {
+        Lookup.getDefault().lookupResult(YayaGameProvider.class).addLookupListener((LookupEvent ev) -> {
+            loadYayaGames();
+        });
+
+        loadYayaGames();
+    }
+
+    private void loadYayaGames() {
+        GameTypeLoader.getInstance().init();
     }
 }

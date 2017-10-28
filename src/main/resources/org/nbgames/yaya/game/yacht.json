@@ -1,190 +1,295 @@
 {
-    "id": "org.nbgames.yaya.yacht",
-    "title": "Yacht",
-    "title-sv": "Jakt",
-    "numOfDice": 5,
-    "numOfRolls": 3,
-    "resultRow": 17,
-    "defaultVariant": 0,
-    "variants": "standard downwards upwards upper_lower lower_upper random",
-    "versionName": "1",
-    "versionDate": "2014-01-03",
-    "author": "Patrik Karlsson",
-    "rows": [
-        {
-            "id": "rolls",
-            "title": "Throws",
-            "title-sv": "Slag",
-            "isSum": true,
-            "isRollCounter": true
-        },
-        {
-            "id": "ones",
-            "title": "Ones",
-            "title-sv": "Ettor",
-            "titleSym": "⚀",
-            "isPlayable": true,
-            "lim": 3,
-            "max": 5,
-            "formula": "sum 1"
-        },
-        {
-            "id": "twos",
-            "title": "Twos",
-            "title-sv": "Tvåor",
-            "titleSym": "⚁",
-            "isPlayable": true,
-            "lim": 6,
-            "max": 10,
-            "formula": "sum 2"
-        },
-        {
-            "id": "threes",
-            "title": "Threes",
-            "title-sv": "Treor",
-            "titleSym": "⚂",
-            "isPlayable": true,
-            "lim": 9,
-            "max": 15,
-            "formula": "sum 3"
-        },
-        {
-            "id": "fours",
-            "title": "Fours",
-            "title-sv": "Fyror",
-            "titleSym": "⚃",
-            "isPlayable": true,
-            "lim": 12,
-            "max": 20,
-            "formula": "sum 4"
-        },
-        {
-            "id": "fives",
-            "title": "Fives",
-            "title-sv": "Femmor",
-            "titleSym": "⚄",
-            "isPlayable": true,
-            "lim": 15,
-            "max": 25,
-            "formula": "sum 5"
-        },
-        {
-            "id": "sixes",
-            "title": "Sixes",
-            "title-sv": "Sexor",
-            "titleSym": "⚅",
-            "isPlayable": true,
-            "lim": 18,
-            "max": 30,
-            "formula": "sum 6"
-        },
-        {
-            "id": "sum1",
-            "title": "Sum 1",
-            "title-sv": "Delsumma 1",
-            "titleSym": "∑₁",
-            "isSum": true,
-            "max": 105,
-            "sum": "1-6"
-        },
-        {
-            "id": "bonus",
-            "title": "Bonus",
-            "title-sv": "Bonus",
-            "titleSym": "+",
-            "isSum": true,
-            "isBonus": true,
-            "lim": 63,
-            "max": 35,
-            "sum": "1-6"
-        },
-        {
-            "id": "threeOfAKind",
-            "title": "Three of a kind",
-            "title-sv": "Tretal",
-            "titleSym": "◼ ◼ ◼",
-            "isPlayable": true,
-            "lim": 12,
-            "max": 18,
-            "formula": "duplicates 3"
-        },
-        {
-            "id": "fourOfAKind",
-            "title": "Four of a kind",
-            "title-sv": "Fyrtal",
-            "titleSym": "◼ ◼ ◼ ◼",
-            "isPlayable": true,
-            "lim": 16,
-            "max": 24,
-            "formula": "duplicates 4"
-        },
-        {
-            "id": "smallStraight",
-            "title": "Small Straight",
-            "title-sv": "Liten stege",
-            "titleSym": "⚀ ⚁ ⚂ ⚃ ⚄",
-            "isPlayable": true,
-            "lim": 25,
-            "max": 25,
-            "formula": "straight 4"
-        },
-        {
-            "id": "largeStraight",
-            "title": "Large Straight",
-            "title-sv": "Stor stege",
-            "titleSym": "⚁ ⚂ ⚃ ⚄ ⚅",
-            "isPlayable": true,
-            "lim": 30,
-            "max": 30,
-            "formula": "straight 5"
-        },
-        {
-            "id": "fullHouse",
-            "title": "Full House",
-            "title-sv": "Kåk",
-            "titleSym": "◼ ◼ ◼ ◻ ◻",
-            "isPlayable": true,
-            "lim": 40,
-            "max": 40,
-            "formula": "house 3 2"
-        },
-        {
-            "id": "the_yacht",
-            "title": "The Yacht",
-            "title-sv": "Jakten",
-            "titleSym": "◼ ◼ ◼ ◼ ◼",
-            "isPlayable": true,
-            "lim": 50,
-            "max": 50,
-            "formula": "duplicates 5"
-        },
-        {
-            "id": "chance",
-            "title": "Chance",
-            "title-sv": "Chans",
-            "titleSym": "� � � � �",
-            "isPlayable": true,
-            "lim": 20,
-            "max": 30,
-            "formula": "sum"
-        },
-        {
-            "id": "sum2",
-            "title": "Sum 2",
-            "title-sv": "Delsumma 2",
-            "titleSym": "∑₂",
-            "isSum": true,
-            "max": 219,
-            "sum": "8-16"
-        },
-        {
-            "id": "total",
-            "title": "Total",
-            "title-sv": "Summa",
-            "titleSym": "∑",
-            "isSum": true,
-            "max": 374,
-            "sum": "1-6,7-17"
-        }
-    ]
+  "id": "org.nbgames.yaya.yacht",
+  "author": "Patrik Karlsson",
+  "title": "Yacht",
+  "format_version": 1,
+  "version_date": "2014-01-03",
+  "version_name": "1",
+  "dice": 5,
+  "rolls": 3,
+  "result_row": 17,
+  "default_variant": 0,
+  "variants": [
+    "STANDARD",
+    "DOWNWARDS",
+    "UPWARDS",
+    "UPPER_LOWER",
+    "LOWER_UPPER",
+    "RANDOM"
+  ],
+  "i10n": {
+    "title-sv": "Jakt"
+  },
+  "rows": [
+    {
+      "bonus": false,
+      "formula": "",
+      "id": "rolls",
+      "lim": 0,
+      "max": 0,
+      "playable": false,
+      "roll_counter": true,
+      "sum": true,
+      "title": "Throws",
+      "title_symbol": "",
+      "i10n": {
+        "title-sv": "Slag"
+      }
+    },
+    {
+      "bonus": false,
+      "formula": "sum 1",
+      "id": "ones",
+      "lim": 3,
+      "max": 5,
+      "playable": true,
+      "roll_counter": false,
+      "sum": false,
+      "title": "Ones",
+      "title_symbol": "⚀",
+      "i10n": {
+        "title-sv": "Ettor"
+      }
+    },
+    {
+      "bonus": false,
+      "formula": "sum 2",
+      "id": "twos",
+      "lim": 6,
+      "max": 10,
+      "playable": true,
+      "roll_counter": false,
+      "sum": false,
+      "title": "Twos",
+      "title_symbol": "⚁",
+      "i10n": {
+        "title-sv": "Tvåor"
+      }
+    },
+    {
+      "bonus": false,
+      "formula": "sum 3",
+      "id": "threes",
+      "lim": 9,
+      "max": 15,
+      "playable": true,
+      "roll_counter": false,
+      "sum": false,
+      "title": "Threes",
+      "title_symbol": "⚂",
+      "i10n": {
+        "title-sv": "Treor"
+      }
+    },
+    {
+      "bonus": false,
+      "formula": "sum 4",
+      "id": "fours",
+      "lim": 12,
+      "max": 20,
+      "playable": true,
+      "roll_counter": false,
+      "sum": false,
+      "title": "Fours",
+      "title_symbol": "⚃",
+      "i10n": {
+        "title-sv": "Fyror"
+      }
+    },
+    {
+      "bonus": false,
+      "formula": "sum 5",
+      "id": "fives",
+      "lim": 15,
+      "max": 25,
+      "playable": true,
+      "roll_counter": false,
+      "sum": false,
+      "title": "Fives",
+      "title_symbol": "⚄",
+      "i10n": {
+        "title-sv": "Femmor"
+      }
+    },
+    {
+      "bonus": false,
+      "formula": "sum 6",
+      "id": "sixes",
+      "lim": 18,
+      "max": 30,
+      "playable": true,
+      "roll_counter": false,
+      "sum": false,
+      "title": "Sixes",
+      "title_symbol": "⚅",
+      "i10n": {
+        "title-sv": "Sexor"
+      }
+    },
+    {
+      "bonus": false,
+      "formula": "",
+      "id": "sum1",
+      "lim": 0,
+      "max": 105,
+      "playable": false,
+      "roll_counter": false,
+      "sum": true,
+      "title": "Sum 1",
+      "title_symbol": "∑₁",
+      "i10n": {
+        "title-sv": "Delsumma 1"
+      }
+    },
+    {
+      "bonus": true,
+      "formula": "",
+      "id": "bonus",
+      "lim": 63,
+      "max": 35,
+      "playable": false,
+      "roll_counter": false,
+      "sum": true,
+      "title": "Bonus",
+      "title_symbol": "+",
+      "i10n": {
+        "title-sv": "Bonus"
+      }
+    },
+    {
+      "bonus": false,
+      "formula": "duplicates 3",
+      "id": "threeOfAKind",
+      "lim": 12,
+      "max": 18,
+      "playable": true,
+      "roll_counter": false,
+      "sum": false,
+      "title": "Three of a kind",
+      "title_symbol": "◼ ◼ ◼",
+      "i10n": {
+        "title-sv": "Tretal"
+      }
+    },
+    {
+      "bonus": false,
+      "formula": "duplicates 4",
+      "id": "fourOfAKind",
+      "lim": 16,
+      "max": 24,
+      "playable": true,
+      "roll_counter": false,
+      "sum": false,
+      "title": "Four of a kind",
+      "title_symbol": "◼ ◼ ◼ ◼",
+      "i10n": {
+        "title-sv": "Fyrtal"
+      }
+    },
+    {
+      "bonus": false,
+      "formula": "straight 4",
+      "id": "smallStraight",
+      "lim": 25,
+      "max": 25,
+      "playable": true,
+      "roll_counter": false,
+      "sum": false,
+      "title": "Small Straight",
+      "title_symbol": "⚀ ⚁ ⚂ ⚃ ⚄",
+      "i10n": {
+        "title-sv": "Liten stege"
+      }
+    },
+    {
+      "bonus": false,
+      "formula": "straight 5",
+      "id": "largeStraight",
+      "lim": 30,
+      "max": 30,
+      "playable": true,
+      "roll_counter": false,
+      "sum": false,
+      "title": "Large Straight",
+      "title_symbol": "⚁ ⚂ ⚃ ⚄ ⚅",
+      "i10n": {
+        "title-sv": "Stor stege"
+      }
+    },
+    {
+      "bonus": false,
+      "formula": "house 3 2",
+      "id": "fullHouse",
+      "lim": 40,
+      "max": 40,
+      "playable": true,
+      "roll_counter": false,
+      "sum": false,
+      "title": "Full House",
+      "title_symbol": "◼ ◼ ◼ ◻ ◻",
+      "i10n": {
+        "title-sv": "Kåk"
+      }
+    },
+    {
+      "bonus": false,
+      "formula": "duplicates 5",
+      "id": "the_yacht",
+      "lim": 50,
+      "max": 50,
+      "playable": true,
+      "roll_counter": false,
+      "sum": false,
+      "title": "The Yacht",
+      "title_symbol": "◼ ◼ ◼ ◼ ◼",
+      "i10n": {
+        "title-sv": "Jakten"
+      }
+    },
+    {
+      "bonus": false,
+      "formula": "sum",
+      "id": "chance",
+      "lim": 20,
+      "max": 30,
+      "playable": true,
+      "roll_counter": false,
+      "sum": false,
+      "title": "Chance",
+      "title_symbol": "� � � � �",
+      "i10n": {
+        "title-sv": "Chans"
+      }
+    },
+    {
+      "bonus": false,
+      "formula": "",
+      "id": "sum2",
+      "lim": 0,
+      "max": 219,
+      "playable": false,
+      "roll_counter": false,
+      "sum": true,
+      "title": "Sum 2",
+      "title_symbol": "∑₂",
+      "i10n": {
+        "title-sv": "Delsumma 2"
+      }
+    },
+    {
+      "bonus": false,
+      "formula": "",
+      "id": "total",
+      "lim": 0,
+      "max": 374,
+      "playable": false,
+      "roll_counter": false,
+      "sum": true,
+      "title": "Total",
+      "title_symbol": "∑",
+      "i10n": {
+        "title-sv": "Summa"
+      }
+    }
+  ]
 }

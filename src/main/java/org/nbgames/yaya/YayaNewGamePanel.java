@@ -19,7 +19,7 @@ import java.util.Arrays;
 import javax.swing.DefaultComboBoxModel;
 import org.nbgames.core.api.DictNbg;
 import org.nbgames.core.api.ui.NewGamePanel;
-import org.nbgames.yaya.gamedef.GameDef;
+import org.nbgames.yaya.gamedef.GameTypeLoader;
 import org.nbgames.yaya.gamedef.GameType;
 import org.openide.util.NbBundle;
 
@@ -29,7 +29,7 @@ import org.openide.util.NbBundle;
  */
 public class YayaNewGamePanel extends NewGamePanel {
 
-    private final GameDef mGameDef = GameDef.INSTANCE;
+    private final GameTypeLoader mGameDef = GameTypeLoader.getInstance();
     private GameType mGameType;
     private final Options mOptions = Options.getInstance();
 
@@ -45,7 +45,7 @@ public class YayaNewGamePanel extends NewGamePanel {
 
     @Override
     public void load() {
-        mGameDef.init();
+        //mGameDef.init();
         gameComboBox.setModel(new DefaultComboBoxModel(mGameDef.getTitleArray()));
         gameComboBox.setSelectedIndex(mGameDef.getIndexForId(mOptions.getGameTypeId()));
         selectPlayersPanel.setNumOfPlayers(mOptions.getNumOfPlayers());

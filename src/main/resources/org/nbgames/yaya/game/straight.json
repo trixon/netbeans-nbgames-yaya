@@ -1,101 +1,158 @@
 {
-    "id": "org.nbgames.yaya.straight",
-    "title": "Straight",
-    "title-sv": "Stegen",
-    "numOfDice": 6,
-    "numOfRolls": 2,
-    "resultRow": 8,
-    "defaultVariant": 0,
-    "variants": "standard downwards upwards random",
-    "versionName": "2",
-    "versionDate": "2014-01-03",
-    "author": "Patrik Karlsson",
-    "rows": [
-        {
-            "id": "rolls",
-            "title": "Throws",
-            "title-sv": "Slag",
-            "isSum": true,
-            "isRollCounter": true
-        },
-        {
-            "id": "ones",
-            "title": "Ones",
-            "title-sv": "Ettor",
-            "titleSym": "⚀",
-            "isPlayable": true,
-            "lim": 2,
-            "max": 5,
-            "formula": "sum 1"
-        },
-        {
-            "id": "twos",
-            "title": "Twos",
-            "title-sv": "Tvåor",
-            "titleSym": "⚁",
-            "isPlayable": true,
-            "lim": 4,
-            "max": 10,
-            "formula": "sum 2"
-        },
-        {
-            "id": "threes",
-            "title": "Threes",
-            "title-sv": "Treor",
-            "titleSym": "⚂",
-            "isPlayable": true,
-            "lim": 6,
-            "max": 15,
-            "formula": "sum 3"
-        },
-        {
-            "id": "fours",
-            "title": "Fours",
-            "title-sv": "Fyror",
-            "titleSym": "⚃",
-            "isPlayable": true,
-            "lim": 8,
-            "max": 20,
-            "formula": "sum 4"
-        },
-        {
-            "id": "fives",
-            "title": "Fives",
-            "title-sv": "Femmor",
-            "titleSym": "⚄",
-            "isPlayable": true,
-            "lim": 10,
-            "max": 25,
-            "formula": "sum 5"
-        },
-        {
-            "id": "sixes",
-            "title": "Sixes",
-            "title-sv": "Sexor",
-            "titleSym": "⚅",
-            "isPlayable": true,
-            "lim": 12,
-            "max": 30,
-            "formula": "sum 6"
-        },
-        {
-            "id": "fullStraight",
-            "title": "Full Straight",
-            "title-sv": "Full stege",
-            "titleSym": "⚀ ⚁ ⚂ ⚃ ⚄ ⚅",
-            "isPlayable": true,
-            "lim": 21,
-            "max": 45,
-            "formula": "straight 6"
-        },
-        {
-            "id": "total",
-            "title": "Total",
-            "title-sv": "Summa",
-            "titleSym": "∑",
-            "isSum": true,
-            "max": 171,
-            "sum": "1-7"
-        }
-    ]
+  "id": "org.nbgames.yaya.straight",
+  "author": "Patrik Karlsson",
+  "title": "Straight",
+  "format_version": 1,
+  "version_date": "2014-01-03",
+  "version_name": "2",
+  "dice": 6,
+  "rolls": 2,
+  "result_row": 8,
+  "default_variant": 0,
+  "variants": [
+    "STANDARD",
+    "DOWNWARDS",
+    "UPWARDS",
+    "RANDOM"
+  ],
+  "i10n": {
+    "title-sv": "Stegen"
+  },
+  "rows": [
+    {
+      "bonus": false,
+      "formula": "",
+      "id": "rolls",
+      "lim": 0,
+      "max": 0,
+      "playable": false,
+      "roll_counter": true,
+      "sum": true,
+      "title": "Throws",
+      "title_symbol": "",
+      "i10n": {
+        "title-sv": "Slag"
+      }
+    },
+    {
+      "bonus": false,
+      "formula": "sum 1",
+      "id": "ones",
+      "lim": 2,
+      "max": 5,
+      "playable": true,
+      "roll_counter": false,
+      "sum": false,
+      "title": "Ones",
+      "title_symbol": "⚀",
+      "i10n": {
+        "title-sv": "Ettor"
+      }
+    },
+    {
+      "bonus": false,
+      "formula": "sum 2",
+      "id": "twos",
+      "lim": 4,
+      "max": 10,
+      "playable": true,
+      "roll_counter": false,
+      "sum": false,
+      "title": "Twos",
+      "title_symbol": "⚁",
+      "i10n": {
+        "title-sv": "Tvåor"
+      }
+    },
+    {
+      "bonus": false,
+      "formula": "sum 3",
+      "id": "threes",
+      "lim": 6,
+      "max": 15,
+      "playable": true,
+      "roll_counter": false,
+      "sum": false,
+      "title": "Threes",
+      "title_symbol": "⚂",
+      "i10n": {
+        "title-sv": "Treor"
+      }
+    },
+    {
+      "bonus": false,
+      "formula": "sum 4",
+      "id": "fours",
+      "lim": 8,
+      "max": 20,
+      "playable": true,
+      "roll_counter": false,
+      "sum": false,
+      "title": "Fours",
+      "title_symbol": "⚃",
+      "i10n": {
+        "title-sv": "Fyror"
+      }
+    },
+    {
+      "bonus": false,
+      "formula": "sum 5",
+      "id": "fives",
+      "lim": 10,
+      "max": 25,
+      "playable": true,
+      "roll_counter": false,
+      "sum": false,
+      "title": "Fives",
+      "title_symbol": "⚄",
+      "i10n": {
+        "title-sv": "Femmor"
+      }
+    },
+    {
+      "bonus": false,
+      "formula": "sum 6",
+      "id": "sixes",
+      "lim": 12,
+      "max": 30,
+      "playable": true,
+      "roll_counter": false,
+      "sum": false,
+      "title": "Sixes",
+      "title_symbol": "⚅",
+      "i10n": {
+        "title-sv": "Sexor"
+      }
+    },
+    {
+      "bonus": false,
+      "formula": "straight 6",
+      "id": "fullStraight",
+      "lim": 21,
+      "max": 45,
+      "playable": true,
+      "roll_counter": false,
+      "sum": false,
+      "title": "Full Straight",
+      "title_symbol": "⚀ ⚁ ⚂ ⚃ ⚄ ⚅",
+      "i10n": {
+        "title-sv": "Full stege"
+      }
+    },
+    {
+      "bonus": false,
+      "formula": "",
+      "id": "total",
+      "lim": 0,
+      "max": 171,
+      "playable": false,
+      "roll_counter": false,
+      "sum": true,
+      "title": "Total",
+      "title_symbol": "∑",
+      "i10n": {
+        "title-sv": "Summa"
+      }
+    }
+  ]
 }

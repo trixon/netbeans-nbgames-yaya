@@ -31,7 +31,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import org.nbgames.yaya.Options;
-import org.nbgames.yaya.gamedef.GameDef;
+import org.nbgames.yaya.gamedef.GameTypeLoader;
 import org.nbgames.yaya.gamedef.GameType;
 import org.nbgames.yaya.scorecard.ScoreCardObservable.ScoreCardEvent;
 import se.trixon.almond.util.CircularInt;
@@ -47,7 +47,7 @@ public class ScoreCard {
     private int mActivePlayer;
     private final JPanel mBasePanel = new JPanel();
     private CircularInt mCurrentPlayer;
-    private final GameDef mGameDef = GameDef.INSTANCE;
+    private final GameTypeLoader mGameDef = GameTypeLoader.getInstance();
     private final GameType mGameType;
     private HeaderColumn mHeaderColumn;
     private int mNumOfPlayers;
@@ -233,7 +233,7 @@ public class ScoreCard {
         mPlayers.clear();
         mHeaderColumn = new HeaderColumn(this, mGameType);
         initActions();
-        mNumOfRows = mGameType.getGameRows().size();
+        mNumOfRows = mGameType.getRows().size();
 
         initLayout();
         applyColors();

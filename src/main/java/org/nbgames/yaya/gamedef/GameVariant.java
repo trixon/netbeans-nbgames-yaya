@@ -13,19 +13,27 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.nbgames.yaya.game;
+package org.nbgames.yaya.gamedef;
 
-import org.nbgames.yaya.api.YayaGameProvider;
-import org.openide.util.lookup.ServiceProvider;
+import java.util.ResourceBundle;
+import org.openide.util.NbBundle;
 
 /**
  *
  * @author Patrik Karlsson
  */
-@ServiceProvider(service = YayaGameProvider.class)
-public class YahtzeeScandinavian extends YayaGameProvider {
+public enum GameVariant {
+    STANDARD,
+    DOWNWARDS,
+    UPWARDS,
+    UPPER_LOWER,
+    LOWER_UPPER,
+    RANDOM;
 
-    public YahtzeeScandinavian() {
-        super("yahtzee_scandinavian.json");
+    public static final String PREFIX = "Variant.";
+    private final ResourceBundle mBundle = NbBundle.getBundle(GameVariant.class);
+
+    public String getLocalized() {
+        return mBundle.getString(PREFIX + name().toLowerCase());
     }
 }
