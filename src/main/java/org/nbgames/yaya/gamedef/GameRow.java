@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright 2018 Patrik Karlström.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -19,7 +19,7 @@ import com.google.gson.annotations.SerializedName;
 import java.util.HashMap;
 import java.util.TreeSet;
 import org.nbgames.core.api.NbGames;
-import se.trixon.almond.nbp.util.AUtil;
+import se.trixon.almond.util.StringHelper;
 
 /**
  *
@@ -139,7 +139,7 @@ public class GameRow {
     }
 
     public void setSumSet(String sumSet) {
-        setSumSet(AUtil.convertStringToIntSet(sumSet));
+        setSumSet(StringHelper.convertStringToIntSet(sumSet));
     }
 
     public void setTitle(String title) {

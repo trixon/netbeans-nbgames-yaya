@@ -41,7 +41,7 @@
           <ComponentRef name="gameComboBox"/>
         </Property>
         <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="DictNbg.GAME.toString()" type="code"/>
+          <Connection code="Dict.Game.GAME.toString()" type="code"/>
         </Property>
       </Properties>
       <Constraints>
@@ -79,7 +79,7 @@
           <ComponentRef name="variantComboBox"/>
         </Property>
         <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="DictNbg.VARIANT.toString()" type="code"/>
+          <Connection code="Dict.Game.VARIANT.toString()" type="code"/>
         </Property>
       </Properties>
       <Constraints>
